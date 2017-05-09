@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Nav, NavItem, Button, Panel} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import './App.css';
 //import Navbar from "react-bootstrap/es/Navbar";
 
@@ -63,7 +65,7 @@ class FolderDrop extends Component {
           Listings
         </Button>
         <Panel collapsible expanded={this.state.open}>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+          quid.
           Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
         </Panel>
       </div>
