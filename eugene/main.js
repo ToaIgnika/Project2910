@@ -16,11 +16,11 @@ const bodyDisplay = document.getElementById('container');
 const listOL = document.getElementById('listOL');
 var itemCount = 0;
 
+
 var userKey;
 // realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
-    console.log(firebaseUser);
     userKey = firebaseUser.uid;
     onAdder(userKey); // tracks the list of current user (on add checker)
     onDelete(userKey); // tracks the list of current user (on delete checker)
