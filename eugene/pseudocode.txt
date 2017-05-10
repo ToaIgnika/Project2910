@@ -1,5 +1,5 @@
 
-
+// logs in user via fb and initializes their account if it does not exist
 FUNCTION login
 	IF new user
 		PUSH new user to db
@@ -11,21 +11,25 @@ FUNCTION login
 	FOREACH friend IN friends
 		SET friendID TO friendFullName
 		
+// toggles an allergy setting on or off
 FUNCTION setAllergy PARAMETER allergy
 	IF allergy CHECKED
 		allergy = true
 	ELSE
 		allergy = false
 		
+// bulk set all allergy settings for the active user
 FUNCTION setAllergies
 	IF allergies != NULL
 		FOREACH allergy IN allergies
 			setAllergy(allergy)
 			
+// get coords from optional google maps function and set user location
 FUNCTION setLocation
 	GET coords FROM googleMapsIntegration
 	SET location TO coords
 		
+// take input from form fields and post a new item to active posts
 FUNCTION postItem
 	GET poster_id FROM currentUser
 	GET active_posts FROM poster_id
@@ -38,7 +42,8 @@ FUNCTION postItem
 			DISPLAY error message
 	ELSE	
 		DISPLAY too many active posts
-		
+
+// populate the initial list of posts by the user's friends		
 FUNCTION generateDefaultList
 	GET allergies
 	SET defaultList TO NULL
@@ -47,6 +52,7 @@ FUNCTION generateDefaultList
 		PUSH TO defaultList
 	RETURN defaultList (or just have event listener for it)
 	
+// search the default list using a search string
 FUNCTION searchDefaultList // text search only here
 	DECLARE searchResults = generateDefaultList
 	DECLARE searchString = GET FROM search FIELD
@@ -58,16 +64,27 @@ FUNCTION searchDefaultList // text search only here
 			
 	RETURN searchResults (or use event listener)
 		
+// gets the relevant data from a post node and passes it to front end
+// INCLUDING CHAT DATA FOR ONLY THE CHAT BETWEEN RELEVANT USERS
 FUNCTION viewPost PARAMETER post // maybe compound function
 
+// getters if necessary, may not need these with javascript/JSON
 FUNCTION getName PARAMETER post
 	RETURN post.name
 	// standard getters for all data fields in post and user, with appropriate null handling
 	
+// retrieves a chat if the user is one of the participants
+FUNCTION getChat PARAMETER post
+	FOREACH chat_id IN post
+		IF user_id IN chat_id.users
+		RETURN chat_id
+		
+// retrieve messages from a chat the user is a participant in
+FUNCTION getMessages PARAMETER chat
+	FOREACH message IN CHAT
+		DISPLAY message in chat box/window/whatever
 	
-
-
-
+	
 
 
 
