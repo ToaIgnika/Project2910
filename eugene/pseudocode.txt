@@ -1,0 +1,98 @@
+
+
+FUNCTION login
+	IF new user
+		PUSH new user to db
+	GET facebookAuth FROM firebase
+	SET facebookIdField TO facebookAuth
+	GET profilePicture FROM facebookAuth
+	CREATE NEW ENTRY IN profile_images 
+	GET facebook friends FROM facebookAuth
+	FOREACH friend IN friends
+		SET friendID TO friendFullName
+		
+FUNCTION setAllergy PARAMETER allergy
+	IF allergy CHECKED
+		allergy = true
+	ELSE
+		allergy = false
+		
+FUNCTION setAllergies
+	IF allergies != NULL
+		FOREACH allergy IN allergies
+			setAllergy(allergy)
+			
+FUNCTION setLocation
+	GET coords FROM googleMapsIntegration
+	SET location TO coords
+		
+FUNCTION postItem
+	GET poster_id FROM currentUser
+	GET active_posts FROM poster_id
+	IF active_posts < MAX_POSTS
+		GET name, desc, meal, allergens, lifespan FROM form fields
+		GET timeStamp FROM currentTime
+		IF fields validate
+			CREATE post IN activePosts
+		ELSE
+			DISPLAY error message
+	ELSE	
+		DISPLAY too many active posts
+		
+FUNCTION generateDefaultList
+	GET allergies
+	SET defaultList TO NULL
+	FOREACH post IN activePosts
+		IF (poster_id IN friends.friendID) AND (allergens NOT IN allergies)
+		PUSH TO defaultList
+	RETURN defaultList (or just have event listener for it)
+	
+FUNCTION searchDefaultList // text search only here
+	DECLARE searchResults = generateDefaultList
+	DECLARE searchString = GET FROM search FIELD
+	DECLARE params[] = SPLIT searchString ON whiteSpace
+	
+	FOREACH item IN searchResults
+		IF params[] NOT IN (item.name OR item.description)
+			REMOVE FROM searchResults
+			
+	RETURN searchResults (or use event listener)
+		
+FUNCTION viewPost PARAMETER post // maybe compound function
+
+FUNCTION getName PARAMETER post
+	RETURN post.name
+	// standard getters for all data fields in post and user, with appropriate null handling
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
