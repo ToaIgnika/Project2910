@@ -20,7 +20,28 @@ const loginPage = document.getElementById('loginPage');
 // realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
-    console.log(firebaseUser);
+
+    firebase.auth().getRedirectResult().then(function(result) {
+      if (result.credential) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = result.credential.accessToken;
+        var friendPath = ('https://graph.facebook.com/me/friends?access_token=').concat(token);
+        console.log(friendPath);
+        FB.api(
+          friendPath,
+          'GET',
+          {},
+          function(response) {
+            alert(JSON.stringify(response));
+            document.getElementById("demo").innerHTML = response.data[1].name + " " + response.data[1].id;
+          }
+        );
+
+      }
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+    })
     window.location = "main.html";
   } else {
     bodyDisplay.classList.remove('hide');
@@ -39,22 +60,4 @@ btnFBLogin.addEventListener('click', e => {
     'display': 'popup'
   });
   firebase.auth().signInWithRedirect(provider);
-  firebase.auth().getRedirectResult().then(function(result) {
-    if (result.credential) {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      var token = result.credential.accessToken;
-    
-    }
-    // The signed-in user info.
-    var user = result.user;
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
 })
