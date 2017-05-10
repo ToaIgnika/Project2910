@@ -7,7 +7,6 @@ var config = {
   storageBucket: "mytestproject-b1a4e.appspot.com",
   messagingSenderId: "697969833462"
 };
-
 firebase.initializeApp(config);
 
 
@@ -17,30 +16,35 @@ const bodyDisplay = document.getElementById('container');
 const loginPage = document.getElementById('loginPage');
 
 
+// Get a reference to the database service
+
 // realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
-
     firebase.auth().getRedirectResult().then(function(result) {
       if (result.credential) {
+        FB.init();
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
-        var friendPath = ('https://graph.facebook.com/me/friends?access_token=').concat(token);
+        var friendPath = ('/me/friends?access_token=').concat(token);
         console.log(friendPath);
+        var fbObject;
         FB.api(
           friendPath,
           'GET',
           {},
           function(response) {
-            alert(JSON.stringify(response));
-            document.getElementById("demo").innerHTML = response.data[1].name + " " + response.data[1].id;
-          }
+            console.log("hello");
+            fbObject = response;
+        }
         );
-
+        console.log("world");
+        for (var i = 0; i < fbObject.data.length; i++) {
+          alert(fbObject.data[i].name + " " + fbObject.data[i].id);
+      }
       }
       // The signed-in user info.
       var user = result.user;
-      console.log(user);
     })
     window.location = "main.html";
   } else {

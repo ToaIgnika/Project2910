@@ -26,6 +26,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     onDelete(userKey); // tracks the list of current user (on delete checker)
 
     bodyDisplay.classList.remove('hide');
+    //window.location = "main.html";
   } else {
     console.log("not loged in");
     window.location = "index.html";
