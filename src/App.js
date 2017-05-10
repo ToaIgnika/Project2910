@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Nav, NavItem, Button, Panel} from "react-bootstrap";
+import {Nav, NavItem, Button, Panel, FormGroup, Form, FormControl, Navbar} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './App.css';
@@ -14,37 +14,6 @@ class App extends Component {
         <FolderDrop />
         <FolderDrop />
         <BotNav />
-      </div>
-    );
-  }
-}
-
-class TopNav extends Component {
-  render() {
-    function handleSelect(selectedKey) {
-      alert('selected ' + selectedKey);
-    }
-
-    return (
-      <div className="Top-nav">
-        <Nav bsStyle="pills" activeKey={1} onSelect={handleSelect}>
-          <NavItem eventKey={1}>Home</NavItem>
-          <NavItem eventKey={2}>Listing</NavItem>
-          <NavItem eventKey={3}>Profile</NavItem>
-          <NavItem eventKey={4}>Affiliate</NavItem>
-        </Nav>
-      </div>
-    );
-  }
-}
-
-class BotNav extends Component {
-  render() {
-    return (
-      <div className="Bot-nav">
-        <Button bsStyle="primary" type="submit">Submit</Button>
-        <Button bsStyle="primary" type="submit">Request</Button>
-        <Button bsStyle="primary" type="submit">Post</Button>
       </div>
     );
   }
@@ -73,4 +42,4 @@ class FolderDrop extends Component {
   }
 }
 
-export default App;
+export default FolderDrop;
