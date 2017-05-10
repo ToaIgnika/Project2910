@@ -1,22 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FolderDrop from './App';
+import App from './App';
 import Login from './Login'
 import BotNav from './BotNav'
 import TopNav from './TopNav'
 import './index.css';
-
-ReactDom.render(
-    <TopNav />,
-    document.getElementsByTagName('header')
-);
+import AddPage from "./AddPage";
 
 ReactDOM.render(
-  <FolderDrop />,
+  <App />,
   document.getElementById('root')
 );
 
-ReactDOM.render(
-    <BotNav />,
-    document.getElementsByTagName('footer')
-);

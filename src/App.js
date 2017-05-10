@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Nav, NavItem, Button, Panel, FormGroup, Form, FormControl, Navbar} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import TopNav from './TopNav'
+import BotNav from'./BotNav'
 import './App.css';
 //import Navbar from "react-bootstrap/es/Navbar";
 
@@ -9,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TopNav />
+        <TopNav /><br/><br/>
         <FolderDrop />
         <FolderDrop />
         <FolderDrop />
@@ -42,4 +44,4 @@ class FolderDrop extends Component {
   }
 }
 
-export default FolderDrop;
+export default App;

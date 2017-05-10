@@ -13,16 +13,17 @@ class TopNav extends Component {
         }
 
         return (
-            <div className="Top-nav">
-                <Nav bsStyle="pills" activeKey={1} onSelect={handleSelect}>
-                    <NavItem eventKey={1}>Home</NavItem>
-                    <NavItem eventKey={2}>Listing</NavItem>
-                    <NavItem eventKey={3}>Profile</NavItem>
-                    <NavItem eventKey={4}>Affiliate</NavItem>
-                </Nav>
+            <div className="topNav">
+                <Navbar fixedTop collapseOnSelect>
+                    <Nav bsStyle="pills" activeKey={1} onSelect={handleSelect}>
+                        <NavItem eventKey={1}>Home</NavItem>
+                        <NavItem eventKey={2}>Listing</NavItem>
+                        <NavItem eventKey={3}>Profile</NavItem>
+                        <NavItem eventKey={4}>Affiliate</NavItem>
+                    </Nav>
+                </Navbar>
             </div>
         );
     }
 }
-
 export default TopNav;

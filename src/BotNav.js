@@ -22,17 +22,24 @@ class BotNav extends Component {
 
     render() {
         return (
-            <div className="Bot-nav">
-                <FormGroup>
-                    <FormControl type="text" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
-                </FormGroup>
-                {' '}
-                <Button type="submit">Submit</Button>
-                <Button bsStyle="primary" type="submit">Request</Button>
-                <Button bsStyle="primary" type="submit">Post</Button>
+            <div className="botNav">
+                <Navbar fixedBottom>
+                    <Navbar.Toggle/>
+                    <Navbar.Collapse>
+                        <Navbar.Form pullLeft>
+                            <FormGroup>
+                                <FormControl type="text" placeholder="Search" />
+                            </FormGroup>
+                            {' '}
+                            <Button type="submit">Submit</Button>&nbsp;
+                        </Navbar.Form>
+                        <Nav pullRight>
+                            <NavItem><Button bsStyle="primary" type="submit">Post!</Button></NavItem>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </div>
         );
     }
 }
-
 export default BotNav;
