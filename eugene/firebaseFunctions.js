@@ -67,7 +67,7 @@ function loginPageHandler() {
 
 // node getter. returns as an reference object.
 function getNodeAt(nLocation) {
-  return firebase.database().ref().child(nLocation);
+  return db.ref().child(nLocation);
 }
 
 
@@ -77,20 +77,21 @@ if yes, no changes made.
 TODO: update info, i.e. photo/friendlist/location/
 */
 function userCheckHandle(uidUserVal, firebaseUser) {
-  const userNode = getNodeAt('users/');
-  userNode.once('value', function(snapshot) {
+  const cUserList = getNodeAt('cUsers/');
+  cUserList.once('value', function(snapshot) {
     if (snapshot.hasChild(uidUserVal)) {
       console.log("user exist");
     } else {
+      const userNode = getNodeAt('users');
       const newUserNode = userNode.child(uidUserVal);
+      getNodeAt('cUsers').child(uidUserVal).set({'stat':'true'});
       newUserNode.set({
-        'userName' : firebaseUser.displayName,
-        'profileURL' : firebaseUser.photoURL,
-        'postArchive' : '0',
-        'postActive' : '0',
+        'user_name' : firebaseUser.displayName,
+        'profile_url' : firebaseUser.photoURL,
+        'active_posts' : '0',
         'location' : '0',
-        'fbID' : '0',
-        'friendList' : '0'
+        'fb_id' : '0',
+        'friends' : '0' // placeholder value, this will become a list
       })
       console.log("user created");
     }
@@ -102,8 +103,8 @@ function userHandler(uidUserVal, firebaseUser) {
   const userNode = getNodeAt('users/' + uidUserVal);
   //TODO pull fb friendlist
   var updates = {};
-  updates['/userName'] = firebaseUser.displayName;
-  updates['/profileURL'] = firebaseUser.photoURL;
+  updates['/user_name'] = firebaseUser.displayName;
+  updates['/profile_url'] = firebaseUser.photoURL;
   userNode.update(updates);
 }
 
@@ -120,7 +121,15 @@ function getUser(uid) {
 
 // returns the reputation score of the specified user
 function getRep(uid) {
-	getNodeAt('users/' + uid + 'rep_score/').once('value')
+	getNodeAt('users/' + uid + '/rep_score/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the facebook user name of the user
+function getUserName(uid) {
+	getNodeAt('users/' + uid + '/user_name/').once('value')
 		.then(function(snapshot) {
 			return snapshot.val();
 		}
@@ -128,13 +137,112 @@ function getRep(uid) {
 
 // returns the url of the facebook profile picture of the user
 function getPic(uid){
-	// TBD after FB ID stuff
-}
-
-// returns the number of active posts by the given user
-function getActivePosts(uid) {
-	getNodeAt('users/' + uid + 'active_posts/').once('value')
+	getNodeAt('users/' + uid + '/profile_url/').once('value')
 		.then(function(snapshot) {
 			return snapshot.val();
 		}
 }
+
+// returns the number of active posts by the given user
+function getActivePosts(uid) {
+	getNodeAt('users/' + uid + '/active_posts/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the specified user's facebook id (for data retrieval)
+function getFbId(uid) {
+	// TBD after FB stuff
+}
+
+// returns the user's location data, if set
+function getLocation(uid) {
+	// TBD after map stuff
+}
+	
+// returns the user's facebook friends as a list? <- TBD
+function getFriends(uid) {
+	// TBD after FB stuff
+}
+
+// returns the user's allergy profile, if set
+function getAllergies(uid) {
+	// TBD
+}
+
+// returns a posting object identified by its post_id
+function getPost(pid) {
+	return getNodeAt('posts/' + pid);
+}
+
+// returns the name of a post as a string snapshot 
+function getPostName(pid) {
+	getNodeAt('posts/' + pid + '/name/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the description of a post as a string snapshot 
+function getPostDesc(pid) {
+	getNodeAt('posts/' + pid + '/desc/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the post date of a post as a string/date? snapshot 
+function getPostDate(pid) {
+	getNodeAt('posts/' + pid + '/post_date/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the lifespan of a post as a string/int? snapshot 
+function getPostLifespan(pid) {
+	getNodeAt('posts/' + pid + '/post_lifespan/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the poster id of a post as a string snapshot 
+function getPosterId(pid) {
+	getNodeAt('posts/' + pid + '/poster_id/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the recipient's id of a post as a string snapshot 
+function getRecipientId(pid) {
+	getNodeAt('posts/' + pid + '/recipient_id/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns true if the post is a meal, false otherwise 
+function isMeal(pid) {
+	getNodeAt('posts/' + pid + '/meal/').once('value')
+		.then(function(snapshot) {
+			return snapshot.exists();
+		}
+}
+
+// returns true if the post was successful, false otherwise 
+function isSuccess(pid) {
+	getNodeAt('posts/' + pid + '/success/').once('value')
+		.then(function(snapshot) {
+			return snapshot.exists();
+		}
+}
+
+
+
+
+
+
+
