@@ -12,10 +12,8 @@ class Login extends Component {
     render() {
         return (
             <Jumbotron className="Absolute-Center is-Responsive">
-                <div>
                     <h2>Welcome to F2E!</h2><hr />
                     <Button className="facebookButton" bsStyle="primary">Log in with facebook!</Button>
-                </div>
             </Jumbotron>
         );
     }

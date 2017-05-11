@@ -23,34 +23,31 @@ class AddPage extends Component {
             <div className="addPage">
                 <Grid>
                     <Row>
-                        <Col xs={8}>
-                            <Grid>
-                                <Col sm={3}>
-                                    <Image src="/thumbnail.png" circle />
-                                </Col>
-                                <Col sm={8} smOffset={1}>
-                                    <form>
-                                        <FormGroup>
-                                            <ControlLabel>Food name</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                value={this.state.value}
-                                                placeholder="Food Name"
-                                                onChange={this.handleChange}
-                                            />
-                                        </FormGroup>
-                                        <FormGroup controlId="formControlsSelect">
-                                        <ControlLabel>Condition</ControlLabel>
-                                        <FormControl componentClass="select" placeholder="select">
-                                            <option value="select">Good</option>
-                                            <option value="other">Bad</option>
-                                        </FormControl>
-                                    </FormGroup>
-                                    </form>
-                                </Col>
-                            </Grid>
+                        <Col xs={3}>
+                            <Image src="/thumbnail.png" circle />
+                        </Col>
+                        <Col xs={8} xsOffset={1}>
+                            <form>
+                                <FormGroup>
+                                    <ControlLabel>Food name</ControlLabel>
+                                    <FormControl
+                                        type="text"
+                                        value={this.state.value}
+                                        placeholder="Food Name"
+                                        onChange={this.handleChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup controlId="formControlsSelect">
+                                <ControlLabel>Condition</ControlLabel>
+                                <FormControl componentClass="select" placeholder="select">
+                                    <option value="select">Good</option>
+                                    <option value="other">Bad</option>
+                                </FormControl>
+                            </FormGroup>
+                            </form>
                         </Col>
                     </Row>
+                    <br />
                     <Row>
                         <Col xs={12}>
                             <FormGroup controlId="formControlsTextarea">
@@ -60,7 +57,7 @@ class AddPage extends Component {
                         </Col>
                     </Row>
                     <Row className="addButtons">
-                        <Col xs={6}>
+                        <Col xs={12}>
                             <ButtonGroup bsSize="sm">
                                 <Button>Reset</Button>
                                 <Button>Submit</Button>

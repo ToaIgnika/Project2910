@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import TopNav from './TopNav'
 import BotNav from'./BotNav'
+import AddPage from './AddPage'
+import Login from './Login'
 import './App.css';
 //import Navbar from "react-bootstrap/es/Navbar";
 
@@ -11,10 +13,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TopNav /><br/><br/>
-        <FolderDrop />
-        <FolderDrop />
-        <FolderDrop />
+        <TopNav />
+          <div className="mainContent">
+              <AddPage />
+          </div>
         <BotNav />
       </div>
     );
