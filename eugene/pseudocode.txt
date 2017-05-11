@@ -124,13 +124,20 @@ FUNCTION rateSuccess PARAMETER user_id, rating {
 		SET final_rating = AVERAGE OF poster_rating AND recipient_rating
 }
 	
-	
+// this function will allow the poster to assign the recipient of a post
+FUNCTION assignRecipient PARAMETER post, user_id {
+	this.recipient_id = user_id
+}
 	
 // handles the post being marked as a successful trade
 FUNCTION tradeSuccess PARAMETER post {
 	DECLARE success = archive(this)
-	SET values
-		success.success = true;
+	IF EXISTS this.recipient_id
+		SET values
+			success.success = true;
+	ELSE
+		recipient_id = foo // determine the recipient with external func
+		assignRecipient(this, recipient_id) // format not final
 }		
 
 

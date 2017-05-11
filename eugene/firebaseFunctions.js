@@ -110,3 +110,31 @@ function userHandler(uidUserVal, firebaseUser) {
 
 
 //TODO GETTERS/ SETTERS FOR USER INFO
+
+// mike is working on getters yo
+
+// returns user node as an object
+function getUser(uid) {
+	return getNodeAt('users/' + uid);
+}
+
+// returns the reputation score of the specified user
+function getRep(uid) {
+	getNodeAt('users/' + uid + 'rep_score/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
+
+// returns the url of the facebook profile picture of the user
+function getPic(uid){
+	// TBD after FB ID stuff
+}
+
+// returns the number of active posts by the given user
+function getActivePosts(uid) {
+	getNodeAt('users/' + uid + 'active_posts/').once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		}
+}
