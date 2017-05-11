@@ -17,9 +17,9 @@ class TopNav extends Component {
                 <Navbar fixedTop collapseOnSelect>
                     <Nav bsStyle="pills" activeKey={1} onSelect={handleSelect}>
                         <NavItem eventKey={1}>Home</NavItem>
-                        <NavItem eventKey={2}>Listing</NavItem>
+                        <NavItem eventKey={2}>Map</NavItem>
                         <NavItem eventKey={3}>Profile</NavItem>
-                        <NavItem eventKey={4}>Affiliate</NavItem>
+                        <NavItem eventKey={4}>Affiliates</NavItem>
                     </Nav>
                 </Navbar>
             </div>

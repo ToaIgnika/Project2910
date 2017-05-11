@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import {Glyphicon, Grid, FormGroup, FormControl, Row, Col, Image,ControlLabel, Button,ButtonGroup} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import './PostView.css'
 
 
 class PostView extends Component {
@@ -29,14 +30,14 @@ render() {
                 <br />
                 <Row>
                     <Col xs={12}>
-                        <div>
+                        <div className="postDesc">
                             <p>Description here</p>
                         </div>
                     </Col>
                 </Row>
                 <Row className="addButtons">
                     <Col sm={12}>
-                        <Button bsSize="small"><Glyphicicon glyph="comment"/>Contact</Button>
+                        <Button bsSize="small"><Glyphicon glyph="comment"/>;Contact</Button>
                     </Col>
                 </Row>
             </Grid>

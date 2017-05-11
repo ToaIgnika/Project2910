@@ -6,6 +6,10 @@ import TopNav from './TopNav'
 import BotNav from'./BotNav'
 import AddPage from './AddPage'
 import Login from './Login'
+import Profile from './Profile'
+import PostView from './PostView'
+import Settings from './Settings'
+import Affiliates from './Affiliates'
 import './App.css';
 //import Navbar from "react-bootstrap/es/Navbar";
 
@@ -16,7 +20,7 @@ class App extends Component {
       <div className="App">
         <TopNav />
           <div className="mainContent">
-              <Login />
+              <Affiliates />
           </div>
         <BotNav />
       </div>
