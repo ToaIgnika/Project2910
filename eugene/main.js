@@ -1,13 +1,5 @@
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCCgzdNYYtJPwX6GpeG64VWiCKRVlneYBk",
-  authDomain: "mytestproject-b1a4e.firebaseapp.com",
-  databaseURL: "https://mytestproject-b1a4e.firebaseio.com",
-  projectId: "mytestproject-b1a4e",
-  storageBucket: "mytestproject-b1a4e.appspot.com",
-  messagingSenderId: "697969833462"
-};
-firebase.initializeApp(config);
+initFirebaseApp();
 // create reference to DB
 const db = firebase.database();
 // Get elements
@@ -22,10 +14,13 @@ var userKey;
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     userKey = firebaseUser.uid;
+    userCheckHandle(userKey, firebaseUser);
     onAdder(userKey); // tracks the list of current user (on add checker)
     onDelete(userKey); // tracks the list of current user (on delete checker)
-
+    const whyDB = db.ref().child("hello/world");
+    whyDB.set({"hello":"0"});
     bodyDisplay.classList.remove('hide');
+    //window.location = "main.html";
   } else {
     console.log("not loged in");
     window.location = "index.html";
@@ -117,12 +112,12 @@ const userList = document.getElementById('userList');
 const otherList = document.getElementById('otherList');
 btnShowUser.addEventListener('click', e => {
   if(btnShowUser.value == "0") {
-  userList.classList.remove('hide');
-  btnShowUser.value = "1";
-} else {
-  userList.classList.add('hide');
-  btnShowUser.value = "0";
-}
+    userList.classList.remove('hide');
+    btnShowUser.value = "1";
+  } else {
+    userList.classList.add('hide');
+    btnShowUser.value = "0";
+  }
 });
 
 btnShowOther.addEventListener('click', e => {
