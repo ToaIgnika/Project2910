@@ -10,12 +10,13 @@ import './App.css';
 //import Navbar from "react-bootstrap/es/Navbar";
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
         <TopNav />
           <div className="mainContent">
-              <AddPage />
+              <Login />
           </div>
         <BotNav />
       </div>
