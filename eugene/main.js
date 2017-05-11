@@ -1,7 +1,5 @@
 // Initialize Firebase
 initFirebaseApp();
-// create reference to DB
-const db = firebase.database();
 // Get elements
 const btnLogout = document.getElementById('btnLogout');
 const bodyDisplay = document.getElementById('container');
@@ -17,8 +15,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     userCheckHandle(userKey, firebaseUser);
     onAdder(userKey); // tracks the list of current user (on add checker)
     onDelete(userKey); // tracks the list of current user (on delete checker)
-    const whyDB = db.ref().child("hello/world");
-    whyDB.set({"hello":"0"});
+
     bodyDisplay.classList.remove('hide');
     //window.location = "main.html";
   } else {
@@ -40,7 +37,7 @@ const desTxt = document.getElementById('desTxt');
 
 // listener for added items
 function onAdder(userKeyVal) {
-  const readObj = db.ref().child(userKeyVal);
+  const readObj = getNodeAt(userKeyVal);
   readObj.on('child_added', snap => {
     itemCount ++;
     // check the itemlist
@@ -62,7 +59,7 @@ function onAdder(userKeyVal) {
 
 // listener for deleted items
 function onDelete(userKeyVal) {
-  const readObj = db.ref().child(userKeyVal);
+  const readObj = getNodeAt(userKey);
   readObj.on('child_removed', snap => {
     itemCount--;
     // check the itemlist
@@ -74,7 +71,7 @@ function onDelete(userKeyVal) {
 // submit button listener
 btnSubmit.addEventListener('click', e => {
   // create reference to a child of DB
-  const foodList = db.ref().child(userKey);
+  const foodList = getNodeAt(userKey);
   // create keyValue for the object
   const keyVal = foodList.push();
   // add new(old object to the given key value)
@@ -88,7 +85,7 @@ btnSubmit.addEventListener('click', e => {
 // delete function
 function delListItem(eventH) {
   const btnValue = eventH.value;
-  const removePlace = db.ref().child(userKey);
+  const removePlace = getNodeAt(userKey);
   const removeItem = removePlace.child(btnValue);
   removeItem.remove();
   eventH.remove();

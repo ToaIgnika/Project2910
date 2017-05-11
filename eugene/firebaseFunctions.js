@@ -67,7 +67,7 @@ function loginPageHandler() {
 
 // node getter. returns as an reference object.
 function getNodeAt(nLocation) {
-  return db.ref().child(nLocation);
+  return firebase.database().ref().child(nLocation);
 }
 
 
@@ -77,14 +77,12 @@ if yes, no changes made.
 TODO: update info, i.e. photo/friendlist/location/
 */
 function userCheckHandle(uidUserVal, firebaseUser) {
-  const cUserList = getNodeAt('cUsers/');
-  cUserList.once('value', function(snapshot) {
+  const userNode = getNodeAt('users/');
+  userNode.once('value', function(snapshot) {
     if (snapshot.hasChild(uidUserVal)) {
       console.log("user exist");
     } else {
-      const userNode = getNodeAt('users');
       const newUserNode = userNode.child(uidUserVal);
-      getNodeAt('cUsers').child(uidUserVal).set({'stat':'true'});
       newUserNode.set({
         'userName' : firebaseUser.displayName,
         'profileURL' : firebaseUser.photoURL,
