@@ -52,6 +52,7 @@ function signInFlowHandle() {
 // onAuthStateChanged
 // return null if the user is not logged in
 // return user UID if user is logged in
+// TODO rethink the model
 function loginPageHandler() {
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -63,3 +64,51 @@ function loginPageHandler() {
     }
   })
 }
+
+// node getter. returns as an reference object.
+function getNodeAt(nLocation) {
+  return db.ref().child(nLocation);
+}
+
+
+/* Checks if the user exist or not in the db.
+If not, create a user in the db.
+if yes, no changes made.
+TODO: update info, i.e. photo/friendlist/location/
+*/
+function userCheckHandle(uidUserVal, firebaseUser) {
+  const cUserList = getNodeAt('cUsers/');
+  cUserList.once('value', function(snapshot) {
+    if (snapshot.hasChild(uidUserVal)) {
+      console.log("user exist");
+    } else {
+      const userNode = getNodeAt('users');
+      const newUserNode = userNode.child(uidUserVal);
+      getNodeAt('cUsers').child(uidUserVal).set({'stat':'true'});
+      newUserNode.set({
+        'userName' : firebaseUser.displayName,
+        'profileURL' : firebaseUser.photoURL,
+        'postArchive' : '0',
+        'postActive' : '0',
+        'location' : '0',
+        'fbID' : '0',
+        'friendList' : '0'
+      })
+      console.log("user created");
+    }
+  })
+}
+
+// function to create/update signed user info
+function userHandler(uidUserVal, firebaseUser) {
+  const userNode = getNodeAt('users/' + uidUserVal);
+  //TODO pull fb friendlist
+  var updates = {};
+  updates['/userName'] = firebaseUser.displayName;
+  updates['/profileURL'] = firebaseUser.photoURL;
+  userNode.update(updates);
+}
+
+
+
+//TODO GETTERS/ SETTERS FOR USER INFO
