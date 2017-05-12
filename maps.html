@@ -19,8 +19,14 @@ API Course, Lesson 1 -->
          center: {lat: 40.74135, lng: -73.99802},
          zoom: 14
        });
+	    if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function (position) {
+             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+             map.setCenter(initialLocation);
+         });
+     }
        // Create a single latLng literal object.
-       var singleLatLng = {lat: 40.74135, lng: -73.99802};
+       var singleLatLng = {lat: 49.248499, lng: -123.001375};
        // TODO: Create a single marker appearing on initialize -
        // Create it with the position of the singleLatLng,
        // on the map, and give it your own title!
