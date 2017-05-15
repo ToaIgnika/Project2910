@@ -12,30 +12,8 @@
              map.setCenter(initialLocation);
          });
      }
-       // Create a single latLng literal object.
-       var singleLatLng = {lat: 49.248499, lng: -123.001375};
-       // TODO: Create a single marker appearing on initialize -
-       // Create it with the position of the singleLatLng,
-       // on the map, and give it your own title!
-	   var marker = new google.maps.Marker({
-		position: singleLatLng,
-		map: map,
-		title: 'JustinMarker',
-		draggable: true
-		});
 
-       // TODO: create a single infowindow, with your own content.
-       // It must appear on the marker
-	   var infowindow = new google.maps.InfoWindow({
-		content: marker.getPosition().toString()
-		});
-		
-		
-       // TODO: create an EVENT LISTENER so that the infowindow opens when
-       // the marker is clicked!
-	   marker.addListener('click', function() {
-			infowindow.setContent(marker.getPosition().toString());
-			infowindow.open(map, marker);
-		});
+		map.data.loadGeoJson('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
+ 
 		
      }
