@@ -29,20 +29,18 @@ function signInFlowHandle() {
     if (result.credential) {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       var token = result.credential.accessToken;
-      var friendPath = ('/me/friends?access_token=').concat(token);
+      var friendPath = ('https://graph.facebook.com/me/friends?access_token=').concat(token);
+      console.log(friendPath);
       FB.api(
         friendPath,
         'GET',
         {},
         function(response) {
-          console.log("hello");
-          fbObject = response;
+          for (var i = 0; i < response.data.length; i++) {
+            alert(response.data[i].name + " " + response.data[i].id);
+          }
         }
       );
-      console.log("world");
-      for (var i = 0; i < respons.data.length; i++) {
-        alert(response.data[i].name + " " + response.data[i].id);
-      }
     }
     // The signed-in user info.
     var user = result.user;
@@ -77,14 +75,12 @@ if yes, no changes made.
 TODO: update info, i.e. photo/friendlist/location/
 */
 function userCheckHandle(uidUserVal, firebaseUser) {
-  const cUserList = getNodeAt('cUsers/');
-  cUserList.once('value', function(snapshot) {
+  const userNode = getNodeAt('users/');
+  userNode.once('value', function(snapshot) {
     if (snapshot.hasChild(uidUserVal)) {
       console.log("user exist");
     } else {
-      const userNode = getNodeAt('users');
       const newUserNode = userNode.child(uidUserVal);
-      getNodeAt('cUsers').child(uidUserVal).set({'stat':'true'});
       newUserNode.set({
         'user_name' : firebaseUser.displayName,
         'profile_url' : firebaseUser.photoURL,

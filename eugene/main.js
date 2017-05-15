@@ -15,14 +15,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     userCheckHandle(userKey, firebaseUser);
     onAdder(userKey); // tracks the list of current user (on add checker)
     onDelete(userKey); // tracks the list of current user (on delete checker)
-    var smd = getPic(userKey);
-    console.log(getPic(userKey));
-    console.log(smd);
-    document.getElementById('profilepic').src = smd;
-    document.getElementById('nametext').innerHTML = getUserName(userKey);
+
     bodyDisplay.classList.remove('hide');
-    console.log(getPic(userKey));
-    console.log(smd);
     //window.location = "main.html";
   } else {
     console.log("not loged in");
@@ -43,7 +37,7 @@ const desTxt = document.getElementById('desTxt');
 
 // listener for added items
 function onAdder(userKeyVal) {
-  const readObj = getNodeAt(userKeyVal);
+  const readObj = getNodeAt('users/' + userKeyVal + '/active_posts/');
   readObj.on('child_added', snap => {
     itemCount ++;
     // check the itemlist
@@ -65,7 +59,7 @@ function onAdder(userKeyVal) {
 
 // listener for deleted items
 function onDelete(userKeyVal) {
-  const readObj = getNodeAt(userKey);
+  const readObj = getNodeAt('users/' + userKey + '/active_posts/');
   readObj.on('child_removed', snap => {
     itemCount--;
     // check the itemlist
@@ -77,7 +71,7 @@ function onDelete(userKeyVal) {
 // submit button listener
 btnSubmit.addEventListener('click', e => {
   // create reference to a child of DB
-  const foodList = getNodeAt(userKey);
+  const foodList = getNodeAt('users/' + userKey + '/active_posts/');
   // create keyValue for the object
   const keyVal = foodList.push();
   // add new(old object to the given key value)
@@ -86,12 +80,15 @@ btnSubmit.addEventListener('click', e => {
     "2_itemNum" : numTxt.value,
     "3_itemDes" : desTxt.value
   });
+  nameTxt.value = '';
+  numTxt.value = '';
+  desTxt.value = '';
 })
 
 // delete function
 function delListItem(eventH) {
   const btnValue = eventH.value;
-  const removePlace = getNodeAt(userKey);
+  const removePlace = getNodeAt('users/' + userKey + '/active_posts/');
   const removeItem = removePlace.child(btnValue);
   removeItem.remove();
   eventH.remove();
@@ -121,8 +118,4 @@ btnShowUser.addEventListener('click', e => {
     userList.classList.add('hide');
     btnShowUser.value = "0";
   }
-});
-
-btnShowOther.addEventListener('click', e => {
-  otherList.classList.remove('hide');
 });
