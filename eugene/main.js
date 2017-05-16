@@ -26,6 +26,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 // logout button action
 btnLogout.addEventListener('click', e => {
+  FB.logout(function(response) {
+  });
   firebase.auth().signOut();
 });
 

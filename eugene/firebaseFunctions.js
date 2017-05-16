@@ -23,7 +23,7 @@ function signInFlow() {
   firebase.auth().signInWithRedirect(provider);
 }
 
-//TODO getRedirectResult function handler
+//TODO getRedirectResult function handlerx`
 function signInFlowHandle() {
   firebase.auth().getRedirectResult().then(function(result) {
     if (result.credential) {
@@ -36,15 +36,22 @@ function signInFlowHandle() {
         'GET',
         {},
         function(response) {
+          console.log(response.error);
+          console.log(result.user.uid);
           for (var i = 0; i < response.data.length; i++) {
+            const foodList = firebase.database().ref().child('userC/test/');
+            // create keyValue for the object
+            const keyVal = foodList.push();
+            // add new(old object to the given key value)
+            keyVal.set({
+              "name" : response.data[i].name
+            });
             alert(response.data[i].name + " " + response.data[i].id);
           }
         }
       );
-    }
-    // The signed-in user info.
-    var user = result.user;
-  })
+    } else {alert("zalupa");}
+  });
 }
 
 // onAuthStateChanged
