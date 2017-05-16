@@ -40,22 +40,22 @@ class BotNav extends Component {
                                 </Modal.Header>
                                 <Modal.Body>
                                     <h3>Allergies</h3>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox>
                                         Peanut
                                     </Checkbox>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox>
                                         Seafood
                                     </Checkbox>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox>
                                         Milk
                                     </Checkbox>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox>
                                         Celiac
                                     </Checkbox>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox>
                                         Nuts
                                     </Checkbox>
-                                    <Checkbox checked readOnly>
+                                    <Checkbox checked>
                                         Soy
                                     </Checkbox>
                                 </Modal.Body>
