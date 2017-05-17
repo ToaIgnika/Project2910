@@ -21,119 +21,25 @@
 <body>
 
 <!-- Header content -->
-<div class="header">
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-            <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
-            <i><span style="font-weight: 500;">F2E</span></i>
-        </a>
-        <div class="navbar-collapse collapse" id="menu-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <!-- Links to a diff page probably; yet to be decided -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto justify-content-end">
-                <!-- Account should only appear after logging in -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Account</a>
-                </li>
-                <!-- Scrapped a dedicated login page in favor of a button -->
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with
-                        Facebook&nbsp;<strong>f</strong></button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
 <!-- Main content -->
 <div class="maincontent">
-    <div class="container-fluid">
+    <div class="container">
         <!-- Welcome message -->
-        <div class="row">
-            <div class="col">
-                <div class="jumbotron jumbotron-fluid welcome-message">
-                    <div class="container centertext">
-                        <h1 class="display-3"><i>Welcome to <span class="greentext">F2E!</span></i></h1>
-                        <hr>
-                        <p class="lead">
-                            <strong>Have any extra food you don't need or you are missing some ingredients? <br>
-                                You've come to the right place!</strong>
-                        </p>
-                    </div>
+        <div class="row welcomemessage">
+            <div class="col-xs-12">
+                <div class="welcomecontent centertext">
+                    <h1 class="display-3"><i>Welcome to <span class="greentext">F2E!</span></i></h1>
+                    <hr>
+                    <p class="lead">
+                        <strong>Have any extra food you don't need or you are missing some ingredients? <br>
+                            You've come to the right place!</strong><br>
+                        Log-in with your facebook account below to get started!
+                    </p>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with
+                        Facebook&nbsp;<strong>f</strong></button>
                 </div>
             </div>
         </div>
-        <!-- Probably some more information -->
-        <div class="row">
-            <div class="col">
-                <div>
-                    <p>Some content here</p>
-                </div>
-                <div>
-                    <p>Some more content here: pending</p>
-                </div>
-            </div>
-        </div>
-        <!-- Content pending -->
-        <div class="row">
-            <div class="col">
-                <div>
-                    <p>Some content here</p>
-                </div>
-                <div>
-                    <p>Some more content here: pending</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div>
-                    <p>Some content here</p>
-                </div>
-                <div>
-                    <p>Some more content here: pending</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div>
-                    <p>Some content here</p>
-                </div>
-                <div>
-                    <p>Some more content here: pending</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Footer content -->
-<div class="footer">
-    <!-- Search appears after logging in or persistent? -->
-    <nav class="navbar fixed-bottom">
-        <div class="container">
-            <!-- Post button, styling in progress OMG -->
-            <ul class="navbar-nav">
-                <li><button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button></li>
-                <li><form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form></li>
-            </ul>
-        </div>
-    </nav>
-</div>
 
 </body>
 </html>

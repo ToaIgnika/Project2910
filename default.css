@@ -2,23 +2,13 @@
     text-align: center;
 }
 
-.navbar-brand {
-    text-decoration: none;
+.welcomecontent {
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid thin gainsboro;
 }
 
-a.navbar-brand {
-    color: inherit;
-    cursor: pointer;
-    font-size: xx-large;
-}
-
-.fixed-top {
-    border-bottom: solid thin gray;
-}
-
-.container-fluid {
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
+.maincontent {
+    background-image: url("./front-image.jpg");
+    background-repeat: no-repeat;
 }
