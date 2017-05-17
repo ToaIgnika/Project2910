@@ -15,8 +15,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     userCheckHandle(userKey, firebaseUser);
     onAdder(userKey); // tracks the list of current user (on add checker)
     onDelete(userKey); // tracks the list of current user (on delete checker)
-
+    var smd = getPic(userKey);
+    console.log(getPic(userKey));
+    console.log(smd);
+    document.getElementById('profilepic').src = smd;
+    document.getElementById('nametext').innerHTML = getUserName(userKey);
     bodyDisplay.classList.remove('hide');
+    console.log(getPic(userKey));
+    console.log(smd);
     //window.location = "main.html";
   } else {
     console.log("not loged in");
