@@ -13,7 +13,7 @@ const loginPage = document.getElementById('loginPage');
 // realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
-    //signInFlowHandle();
+      signInFlowHandle();
     window.location = "main.html";
   } else {
     bodyDisplay.classList.remove('hide');
