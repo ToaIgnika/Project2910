@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     //TODO get redirect results, pull the FB list
     window.location = "home.html";
   } else {
-    //bodyDisplay.classList.remove('hide');
+    $('body_wrap').classList.remove('hide');
   }
 });
 

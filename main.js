@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     // TODO control the DB interaction functions
 
-    //bodyDisplay.classList.remove('hide');
+    $('body_wrap').classList.remove('hide');
   } else {
     window.location = "index.html";
   }
