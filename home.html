@@ -28,7 +28,7 @@
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="home.html">
                 <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
                 <i><span style="font-weight: 500;">F2E</span></i>
             </a>
@@ -62,42 +62,61 @@
                     <!-- Nav tabs -->
                     <div class="card">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#latest" aria-controls="home" role="tab"
+                            <li role="presentation" class="active"><a href="#firstpane" aria-controls="home" role="tab"
                                                                       data-toggle="tab">Latest Posts</a></li>&nbsp;
-                            <li role="presentation"><a href="#usrlstng" aria-controls="profile" role="tab"
+                            <li role="presentation"><a href="#secondpane" aria-controls="profile" role="tab"
                                                        data-toggle="tab">Your Listings</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="latest">
-                                <div class="contentpane">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <ul id="frndlstng">
-                                                    <li>
-                                                        <div class="row">
-                                                            <div class="col-xs-3">
-                                                                <img src="" alt="foodimg" class="">
-                                                            </div>
-                                                            <div class="col-xs-9">
-
-                                                            </div>
+                            <div role="tabpanel" class="tab-pane active" id="firstpane">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <ul id="frndlstng">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-xs-3">
+                                                            <p><span class="foodname"></span></p>
+                                                            <p><span class="foodquantity"></span></p>
+                                                            <p><span class="poster_id"></span></p>
+                                                            <p><span class="date_posted"></span></p>
                                                         </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                        <div class="col-xs-9">
+                                                            <p><span class="desc"></span></p>
+                                                            <
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="usrlstng">Lorem Ipsum is simply dummy text of
-                                th
-                                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                text
-                                ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                make
-                                a type specimen book.
+                            <div role="tabpanel" class="tab-pane" id="secondpane">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <ul id="usrlstng">
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-xs-3">
+                                                            <p><span class="foodname"></span></p>
+                                                            <p><span class="foodquantity"></span></p>
+                                                            <p><span class="date_posted"></span></p>
+                                                        </div>
+                                                        <div class="col-xs-9">
+                                                            <p><span class="desc"></span></p>
+                                                            <button type="button" class="btn btn-default" aria-label="trash">
+                                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
