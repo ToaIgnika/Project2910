@@ -6,11 +6,11 @@ var alex = false;
 
 function al (){
 	if(alex){
-	remy = false;
-	eugine = false;
-	mike = false;	
-	just = false;
-    alex = false;
+		remy = false;
+		eugine = false;
+		mike = false;
+		just = false;
+		alex = false;
 	}
 	else{
 		alex = true;
@@ -20,13 +20,13 @@ function al (){
 	}
 }
 function eu (){
-	
+
 	if(eugine){
-    remy = false;
-	eugine = false;
-	mike = false;	
-    just = false;
-	alex = false;
+		remy = false;
+		eugine = false;
+		mike = false;
+		just = false;
+		alex = false;
 	}
 	else{
 		eugine = true;
@@ -37,11 +37,11 @@ function eu (){
 }
 function mi (){
 	if(mike){
-	remy = false;
-	eugine = false;
-	mike = false;	
-	just = false;
-	alex = false;
+		remy = false;
+		eugine = false;
+		mike = false;
+		just = false;
+		alex = false;
 	}
 	else{
 		mike = true;
@@ -52,11 +52,11 @@ function mi (){
 }
 function re (){
 	if(remy){
-	remy = false;
-	eugine = false;
-	mike = false;	
-	just = false;
-	alex = false;
+		remy = false;
+		eugine = false;
+		mike = false;
+		just = false;
+		alex = false;
 	}
 	else{
 		remy = true;
@@ -67,11 +67,11 @@ function re (){
 }
 function ju (){
 	if(just){
-	remy = false;
-	eugine = false;
-	mike = false;	
-	just = false;
-	alex = false;
+		remy = false;
+		eugine = false;
+		mike = false;
+		just = false;
+		alex = false;
 	}
 	else{
 		just = true;
@@ -81,12 +81,11 @@ function ju (){
 	}
 }
 function godMode(){
-
 	var people = document.getElementsByClassName('img-circle');
-		var i;
-		for(i =0; i<people.length; i++){
-			people[i].src = "http://i0.kym-cdn.com/entries/icons/original/000/013/564/aP2dv.gif";
+	var i;
+	for(i =0; i<people.length; i++){
+		people[i].src = "http://i0.kym-cdn.com/entries/icons/original/000/013/564/aP2dv.gif";
 
 
-		}
+	}
 }
