@@ -40,7 +40,7 @@ function displayUserInfo(user) {
 				// put the output somewhere useful here
 				var insert = document.getElementById(key);
 				if (insert != null) {
-					if (insert.tagName == "img") {
+					if (insert.tagName.toLowerCase() == "img") {
 						insert.setAttribute("src", val);
 					} else {
 						insert.innerText = val;
