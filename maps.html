@@ -1,0 +1,31 @@
+<html>
+<head>
+    <!-- styles put here, but you can include a CSS file and reference it instead! -->
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="hide" id="body_wrap">
+    <div id="map"></div>
+
+    <!--TODO: Insert your API Key in the below call to load the API.-->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN3l07xt3MNImKu_0TheBDiDD3aU6blFU&v=3&callback=initMap">
+    </script>
+    <script async defer src="map.js"></script>
+</div>
+</body>
+</html>

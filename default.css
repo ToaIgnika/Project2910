@@ -12,3 +12,7 @@
     background-image: url("./front-image.jpg");
     background-repeat: no-repeat;
 }
+
+.hide {
+    display: none;
+}
