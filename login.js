@@ -7,7 +7,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     //TODO get redirect results, pull the FB list
     window.location = "home.html";
   } else {
-    $('body_wrap').classList.remove('hide');
+    const wrap = document.getElementById('body_wrap');
+    wrap.classList.remove('hide');
   }
 });
 
