@@ -21,97 +21,99 @@
     </style>
 </head>
 <body>
-<div class="header">
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-            <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
-            <i><span style="font-weight: 500;">F2E</span></i>
-        </a>
-        <div class="navbar-collapse collapse" id="menu-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html">Home</a>
-                </li>
-                <!-- Links to a diff page probably; yet to be decided -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Maps</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto justify-content-end">
-                <!-- Account should only appear after logging in -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Account</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<!-- Main content -->
-<div class="maincontent">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3">
-                <img src="" alt="">
-            </div>
-            <div class="col-xs-8 col-xs-offset-1">
-                <form>
-                    <div class="input-group">
-                        <span class="input-group-addon" aria-hidden="true">Glyph icon of food here please</span>
-                        <input type="text" class="form-control" placeholder="Food item name"
-                               aria-describedby="basic-addon1">
-                    </div>
-                    <div class="form-group">
-                        <label for="numfood">Quantity:</label>
-                        <input type="number" class="form-control" id="numfood">
-                    </div>
-                    <div class="form-group">
-                        <label for="sel1">Condition:</label>
-                        <select class="form-control" id="sel1">
-                            <option>Terrible</option>
-                            <option>Bad</option>
-                            <option>Awful</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default">Reset Info</button>
-                        <button type="button" class="btn btn-default">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer content -->
-    <div class="footer">
-        <!-- Bottom navigation with search -->
-        <nav class="navbar fixed-bottom">
-            <div class="container-fluid">
-                <!-- Post button, styling in progress OMG -->
-                <ul class="navbar-nav">
-                    <li>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+<div class="hide" id="body_wrap">
+    <div class="header">
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+                <i><span style="font-weight: 500;">F2E</span></i>
+            </a>
+            <div class="navbar-collapse collapse" id="menu-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <!-- Links to a diff page probably; yet to be decided -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Maps</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto justify-content-end">
+                    <!-- Account should only appear after logging in -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Account</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-    <script src="firebase.js"></script>
+    <!-- Main content -->
+    <div class="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <img src="" alt="">
+                </div>
+                <div class="col-xs-8 col-xs-offset-1">
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-addon" aria-hidden="true">Glyph icon of food here please</span>
+                            <input type="text" class="form-control" placeholder="Food item name"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                        <div class="form-group">
+                            <label for="numfood">Quantity:</label>
+                            <input type="number" class="form-control" id="numfood">
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Condition:</label>
+                            <select class="form-control" id="sel1">
+                                <option>Terrible</option>
+                                <option>Bad</option>
+                                <option>Awful</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default">Reset Info</button>
+                            <button type="button" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer content -->
+        <div class="footer">
+            <!-- Bottom navigation with search -->
+            <nav class="navbar fixed-bottom">
+                <div class="container-fluid">
+                    <!-- Post button, styling in progress OMG -->
+                    <ul class="navbar-nav">
+                        <li>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <script src="firebase.js"></script>
+    </div>
 </div>
 </body>
 </html>
