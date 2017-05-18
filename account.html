@@ -48,7 +48,7 @@
             <ul class="navbar-nav ml-auto justify-content-end">
                 <!-- Account should only appear after logging in -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Account</a>
+                    <a class="nav-link" href="account.html">Account</a>
                 </li>
             </ul>
         </div>
@@ -63,10 +63,11 @@
                 <span id="nameHTML">Name here!</span><br>
                 <span id="birthdayHTML">Birthday here!</span>
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="nav-item" class="active"><a class="nav-link active" href="#tab_a" data-toggle="pill">Statistics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tab_b" data-toggle="pill">My Interactions</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#tab_a" data-toggle="pill">Statistics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab_b" data-toggle="pill">Interactions</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab_c" data-toggle="pill">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tab_d" data-toggle="pill">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab_d" data-toggle="pill">MyListings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-toggle="pill" onclick="">Logout</a></li>
                 </ul>
             </div>
 
@@ -88,6 +89,9 @@
                             <h4>Settings</h4>
                             <p>Pending</p>
                         </div>
+                        <div class="tab-pane" id="tab_d">
+
+                        </div>
                     </div>
                     <div class="col-sm-2 text-center">
                     </div>
@@ -101,7 +105,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- Footer content -->
 <div class="footer">
@@ -111,7 +114,7 @@
             <!-- Post button, styling in progress OMG -->
             <ul class="navbar-nav">
                 <li>
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button>
+                    <a href="post.html"><button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button></a>
                 </li>
                 <li>
                     <form class="form-inline my-2 my-lg-0">
