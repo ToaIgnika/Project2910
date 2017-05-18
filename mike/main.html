@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="firebase.js"></script>
+  <script src='all.js'></script>
+
+
+</head>
+<body>
+
+
+  <div id="container" class="hide">
+
+    <button id="btnLogout" class="btn">Log out</button>
+
+
+  <p>Food posting service</p>
+  <div id="demo"> </div>
+  Food name
+  <input type="text" id="nameTxt"></input></br>
+  Food quantity
+  <input type="text" id="numTxt"></input></br>
+  Comment
+  <input type="text" id="desTxt"></input></br>
+
+  <button id="subButton" >Send info</button></br>
+
+  <button id="showUser" value = "0">Show ur items</button>
+  <div id="userList" class="hide">
+  <p>Your food list list</p>
+  <ol id="listOL">
+  </ol>
+  </div>
+
+  <button id="showOther" value = "0">Show other items</button>
+  <div id="allList" class="hide">
+    <p>All food items</p>
+    <ol od="listOLa">
+    </ol>
+  </div>
+  <p><img src="http://i3.kym-cdn.com/photos/images/newsfeed/000/674/934/422.jpg" alt="doge"></p>
+  <button id="btnRemove" class="hide"></button>
+
+
+</div>
+<script type="text/javascript" src="firebaseFunctions.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
