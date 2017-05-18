@@ -5,7 +5,7 @@ initFirebaseApp();
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     //TODO get redirect results, pull the FB list
-    window.location = "main.html";
+    window.location = "home.html";
   } else {
     //bodyDisplay.classList.remove('hide');
   }
