@@ -1,0 +1,167 @@
+
+// logs in user via fb and initializes their account if it does not exist
+FUNCTION login {
+	IF new user
+		PUSH new user to db
+	GET facebookAuth FROM firebase
+	SET facebookIdField TO facebookAuth
+	GET profilePicture FROM facebookAuth
+	CREATE NEW ENTRY IN profile_images 
+	GET facebook friends FROM facebookAuth
+	FOREACH friend IN friends
+		SET friendID TO friendFullName
+}
+		
+// toggles an allergy setting on or off
+FUNCTION setAllergy PARAMETER allergy {
+	IF allergy CHECKED
+		allergy = true // add allergy key:value pair to user/allergies
+}
+		
+// bulk set all allergy settings for the active user
+FUNCTION setAllergies {
+	IF allergies != NULL
+		FOREACH allergy IN allergies
+			setAllergy(allergy)
+}
+			
+// get coords from optional google maps function and set user location
+FUNCTION setLocation {
+	GET coords FROM googleMapsIntegration
+	SET location TO coords
+}
+		
+// take input from form fields and post a new item to active posts
+FUNCTION postItem {
+	GET poster_id FROM currentUser
+	GET active_posts FROM poster_id
+	IF active_posts < MAX_POSTS
+		GET name, desc, meal, allergens, lifespan FROM form fields
+		GET timeStamp FROM currentTime
+		IF fields validate
+			CREATE post IN activePosts
+		ELSE
+			DISPLAY error message
+	ELSE	
+		DISPLAY too many active posts
+}
+
+// populate the initial list of posts by the user's friends		
+FUNCTION generateDefaultList {
+	GET allergies
+	SET defaultList TO NULL
+	FOREACH post IN activePosts
+		IF (poster_id IN friends.friendID) AND (allergens NOT IN allergies)
+		PUSH TO defaultList
+	RETURN defaultList (or just have event listener for it)
+}
+	
+// search the default list using a search string OF TEXT ONLY
+FUNCTION searchDefaultList {
+	DECLARE searchResults = generateDefaultList
+	DECLARE searchString = GET FROM search FIELD
+	DECLARE params[] = SPLIT searchString ON whiteSpace
+	
+	FOREACH item IN searchResults
+		IF params[] NOT IN (item.name OR item.description)
+			REMOVE FROM searchResults
+			
+	RETURN searchResults (or use event listener)
+}
+		
+// gets the relevant data from a post node and passes it to front end
+// INCLUDING CHAT DATA FOR ONLY THE CHAT BETWEEN RELEVANT USERS
+FUNCTION viewPost PARAMETER post // maybe compound function
+
+// getters if necessary, may not need these with javascript/JSON
+FUNCTION getName PARAMETER post {
+	RETURN post.name
+	// standard getters for all data fields in post and user, with appropriate null handling
+}
+	
+// retrieves a chat if the user is one of the participants
+FUNCTION getChat PARAMETER post {
+	FOREACH chat_id IN post
+		IF user_id IN chat_id.users
+		RETURN chat_id
+}
+		
+// retrieve messages from a chat the user is a participant in
+// this function MAY BE UNNECESSARY depending on frontend/firebase
+FUNCTION getMessages PARAMETER chat {
+	FOREACH message IN CHAT
+		DISPLAY message in chat box/window/whatever
+}
+	
+// flags active posts as expired based on current time
+// POST LIFESPAN NEEDS TO BE EXPRESSED AS AN ADDABLE VALUE
+FUNCTION flagExpired {
+	FOREACH post IN activePosts
+		IF (post_date + post_lifespan) >= currentTime
+		post.archive
+}
+	
+// moves a post from active to archive
+FUNCTION archive PARAMETER post {
+	IF this IN active_posts
+		DECLARE archive_post = this
+		DELETE active_posts.this
+		RETURN archive_post
+}
+	
+// handles the process of moving an expired post	
+FUNCTION archiveExpired	
+	
+// handles rating of a successful trade from inputs from both users
+FUNCTION rateSuccess PARAMETER user_id, rating {
+	DECLARE final_rating
+	IF user_id == this.poster_id
+		SET this.poster_rating = rating
+	IF user_id == this.recipient_id
+		SET this.recipient_rating = rating
+	
+	IF (EXISTS this.poster_rating AND EXISTS this.recipient_rating)
+		SET final_rating = AVERAGE OF poster_rating AND recipient_rating
+}
+	
+// this function will allow the poster to assign the recipient of a post
+FUNCTION assignRecipient PARAMETER post, user_id {
+	this.recipient_id = user_id
+}
+	
+// handles the post being marked as a successful trade
+FUNCTION tradeSuccess PARAMETER post {
+	DECLARE success = archive(this)
+	IF EXISTS this.recipient_id
+		SET values
+			success.success = true;
+	ELSE
+		recipient_id = foo // determine the recipient with external func
+		assignRecipient(this, recipient_id) // format not final
+}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

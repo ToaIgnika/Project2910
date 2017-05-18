@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="firebase.js"></script>
+  <script src='all.js'></script>
+
+</head>
+<body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1859709394286580',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="container" class="hide">
+    <button id="btnFBLogin" class="btn">FB Log in</button>
+  </div>
+
+  <script type="text/javascript" src="firebaseFunctions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
