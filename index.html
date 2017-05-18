@@ -17,6 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 <body>
 
@@ -35,11 +36,14 @@
                             You've come to the right place!</strong><br>
                         Log-in with your facebook account below to get started!
                     </p>
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign in with
+                    <button class="btn btn-outline-primary my-2 my-sm-0" onClick="signInFlow()" type="submit">Sign in with
                         Facebook&nbsp;<strong>f</strong></button>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
+<script src="login.js"></script>
+<script src="firebase.js"></script>
 </body>
 </html>
