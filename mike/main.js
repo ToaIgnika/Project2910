@@ -88,9 +88,19 @@ function createPost(input1, input2, input3) {
 		poster_id : userKey
 	});
 	
-	
-	
+	// for debug/testing
 	window.alert("post should be id'd as " + post.key + " under user: " + userKey);
+	
+	var userNode = getNodeAt("users/" + userKey + "/active_posts/" + post.key);
+	
+	// edit this to make tStamp a useful data point
+	var tStamp = "true";
+	
+	userNode.set({
+		timestamp : tStamp
+	});
+	
+	window.alert("got here "); 
 	//window.alert("post should have been created with id " + post);
 	
 	// testing purposes
@@ -110,20 +120,58 @@ function displayActivePost(post_id, el) {
 			dPost.id = snapshot.key;
 			
 			// for debug/testing
-			//window.alert(snapshot.key);
+			//window.alert(key + " : " + field.val());
 			
 			snapshot.forEach(function(field) {
 				var key = field.key;
+				var val = field.val();
+				
+				// for debug/testing
+				//window.alert(key + " : " + field.val());
+				
+				// put the output somewhere useful here
+				//var insert = document.getElementById(key);
+				//if (insert.tagName == "img") {
+					//insert.setAttribute("src", val);
+				//} else {
+					//insert.innerText = val;
+				//}
+				//document.getElementsByClassName("sidecontent")[0].appendChild(insert);
+			});
+		});	
+}
+
+// displays user data from database from a given user ID
+function displayUserInfo(user) {
+	const profile = getNodeAt('users/' + user);
+	
+	// for debug/testing
+	window.alert(user + " | " + profile);
+	
+	profile.once("value")
+		.then(function(snapshot) {
+			
+			// for debug/testing
+			window.alert(snapshot.key);
+			
+			snapshot.forEach(function(field) {
+				var key = field.key;
+				var val = field.val();
 				
 				// for debug/testing
 				window.alert(key + " : " + field.val());
 				
 				// put the output somewhere useful here
-				var output = document.createElement('span');
-				output.innerText = key + ": " + field.val() + "\n";
-				dPost.appendChild(output);
+				var insert = document.getElementById(key);
+				if (insert != null) {
+					if (insert.tagName == "img") {
+						insert.setAttribute("src", val);
+					} else {
+						insert.innerText = val;
+					}
+				}
 			});
-			el.appendChild(dPost);
+			
 		});	
 }
 
@@ -146,6 +194,9 @@ btnSubmit.addEventListener('click', e => {
 	
 	// testing post display function
 	displayActivePost(newPostId);
+	
+	// testing user display function sort of
+	displayUserInfo(userKey);
   
   // create reference to a child of DB
   const foodList = getNodeAt('users/' + userKey + '/active_posts/');
