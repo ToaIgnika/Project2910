@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     //TODO get redirect results, pull the FB list
     window.location = "main.html";
   } else {
-    bodyDisplay.classList.remove('hide');
+    //bodyDisplay.classList.remove('hide');
   }
 });
 
@@ -21,4 +21,3 @@ function signInFlow() {
   });
   firebase.auth().signInWithRedirect(provider);
 }
-w
