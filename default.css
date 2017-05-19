@@ -1,0 +1,18 @@
+.centertext {
+    text-align: center;
+}
+
+.welcomecontent {
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid thin gainsboro;
+}
+
+.maincontent {
+    background-image: url("./front-image.jpg");
+    background-repeat: no-repeat;
+}
+
+.hide {
+    display: none;
+}

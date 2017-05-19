@@ -1,0 +1,14 @@
+.centertext {
+    text-align: center;
+}
+
+.welcomecontent {
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid thin gainsboro;
+}
+
+
+.hide {
+    display: none;
+}
