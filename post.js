@@ -16,12 +16,29 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 }
 });
 
-// onadd my list
+function addPost() {
+  const foodItemName = document.getElementById('foodname');
+  const foodItemCount = document.getElementById('numfood');
+  const foodCondition = document.getElementById('sel1');
+  const foodComment = document.getElementById('comment');
+  var user = firebase.auth().currentUser;
+  if (user) {
+    const textNode = getNodeAt('active_posts/').push().set({
+      'item_name' : foodItemName.value,
+      'item_count' : foodItemCount.value,
+      'item_condition' : foodCondition.value,
+      'item_comment' : foodComment.value,
+      'poster_id' : user.uid,
+      'poster_name' : user.displayName
+    });
+  }
+  alert("Post added!");
+  clearPost();
+}
 
-// onchange my list
-
-// onadd fr list
-// onchange fr list
-/**
- * Created by RemyTruong on 2017-05-18.
- */
+function clearPost() {
+  document.getElementById('foodname').value = "";
+  document.getElementById('numfood').value = "";
+  document.getElementById('sel1').selectedIndex = 0;
+  document.getElementById('comment').value = "";
+}

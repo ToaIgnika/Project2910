@@ -5,6 +5,7 @@ initFirebaseApp();
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     //TODO get redirect results, pull the FB list
+
     window.location = "home.html";
   } else {
     const wrap = document.getElementById('body_wrap');
