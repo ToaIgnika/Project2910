@@ -18,7 +18,7 @@
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <link rel="stylesheet" href="listing.css">
+    <link rel="stylesheet" href="./css/listing.css">
 </head>
 <body>
 <div class="hide" id="body_wrap">
@@ -36,7 +36,7 @@
             <div class="navbar-collapse collapse" id="menu-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="home.html">Home</a>
                     </li>
                     <!-- Links to a diff page probably; yet to be decided -->
                     <li class="nav-item">
@@ -59,7 +59,7 @@
     <div class="maincontent">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-sm-12">
                     <!-- Nav tabs -->
                     <div class="card">
                         <ul class="nav nav-tabs" role="tablist">
@@ -101,7 +101,7 @@
     <!-- Footer content -->
     <div class="footer">
         <!-- Bottom navigation with search -->
-        <nav class="navbar fixed-bottom navbar-light bg-faded">
+        <div class="navbar fixed-bottom navbar-light bg-faded">
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
@@ -109,7 +109,7 @@
                     Post!
                 </a>
             </form>
-        </nav>
+        </div>
     </div>
 </div>
 <script src="js/firebase.js"></script>

@@ -1,6 +1,7 @@
 .maincontent {
+    width: 100%;
     margin-top: 16%;
-    maragin-bottom: 16%;
+    margin-bottom: 16%;
 }
 
 .nav-tabs {
@@ -69,4 +70,13 @@
 #userListHTML li {
   list-style-position:inside;
     border: 1px solid black;
+}
+
+.card {
+    margin-bottom: 50px;
+    width: inherit;
+}
+
+.container-fluid {
+    width: 100%;
 }
