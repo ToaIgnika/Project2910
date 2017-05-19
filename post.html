@@ -59,22 +59,20 @@
     <div class="maincontent">
         <div class="container">
             <div class="row">
-                <div class="col-xs-3">
-                    <img src="" alt="">
-                </div>
-                <div class="col-xs-8 col-xs-offset-1">
+                <div class="col-xs-12">
                     <form>
-                        <div class="input-group">
-                            <span class="input-group-addon" aria-hidden="true">Glyph icon of food here please</span>
-                            <input type="text" class="form-control" placeholder="Food item name"
-                                   aria-describedby="basic-addon1">
+                        <div class="input-group input-group-lg">
+                            <label for="foodname">Food item: &nbsp; </label>
+                            <input type="text" class="form-control" id="foodname">
                         </div>
-                        <div class="form-group">
-                            <label for="numfood">Quantity:</label>
+                        <br>
+                        <div class="input-group input-group-lg">
+                            <label for="numfood">Quantity:&nbsp;</label>
                             <input type="number" class="form-control" id="numfood">
                         </div>
-                        <div class="form-group">
-                            <label for="sel1">Condition:</label>
+                        <br>
+                        <div class="input-group input-group-lg">
+                            <label for="sel1">Condition:&nbsp;</label>
                             <select class="form-control" id="sel1">
                                 <option>Terrible</option>
                                 <option>Bad</option>
@@ -89,7 +87,8 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" cols="45" id="comment"></textarea>
+                        <br>
                         <div class="btn-group" role="group" aria-label="...">
                             <button type="button" class="btn btn-default">Reset Info</button>
                             <button type="button" class="btn btn-default">Submit</button>
@@ -105,9 +104,6 @@
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
-                    <a href="post.html">
-                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button>
-                    </a>
                 </form>
             </nav>
         </div>
