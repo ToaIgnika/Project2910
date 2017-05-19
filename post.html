@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-<div class="hide" id="body_wrap">
+<div class="" id="body_wrap">
     <div class="header">
         <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -49,7 +49,7 @@
                 <ul class="navbar-nav ml-auto justify-content-end">
                     <!-- Account should only appear after logging in -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="account">Account</a>
+                        <a class="nav-link" href="account.html">Account</a>
                     </li>
                 </ul>
             </div>
@@ -101,21 +101,18 @@
         <!-- Footer content -->
         <div class="footer">
             <!-- Bottom navigation with search -->
-            <nav class="navbar fixed-bottom">
-                <div class="container-fluid">
-                    <!-- Post button, styling in progress OMG -->
-                    <ul class="navbar-nav">
-                        <li>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+            <nav class="navbar fixed-bottom navbar-light bg-faded">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
+                    <a href="post.html">
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button>
+                    </a>
+                </form>
             </nav>
         </div>
         <script src="firebase.js"></script>
+        <script src="post.js"></script>
     </div>
 </div>
 </body>

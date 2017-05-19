@@ -18,6 +18,7 @@
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <link rel="stylesheet" href="listing.css">
 </head>
 <body>
 <div class="hide" id="body_wrap">
@@ -84,7 +85,6 @@
                                                         </div>
                                                         <div class="col-xs-9">
                                                             <p><span class="desc"></span></p>
-                                                            <
                                                         </div>
                                                     </div>
                                                 </li>
@@ -101,14 +101,14 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="col-xs-3">
-                                                            <p><span class="foodname"></span></p>
-                                                            <p><span class="foodquantity"></span></p>
-                                                            <p><span class="date_posted"></span></p>
+                                                            <p>Food Item:<span class="foodname">3</span></p>
+                                                            <p>Quantity:<span class="foodquantity">2</span></p>
+                                                            <p>Date posted:<span class="date_posted">4</span></p>
                                                         </div>
                                                         <div class="col-xs-9">
                                                             <p><span class="desc"></span></p>
                                                             <button type="button" class="btn btn-default" aria-label="trash">
-                                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                                Click here to delete this post!
                                                             </button>
                                                         </div>
                                                     </div>
@@ -127,21 +127,14 @@
     <!-- Footer content -->
     <div class="footer">
         <!-- Bottom navigation with search -->
-        <nav class="navbar fixed-bottom">
-            <!-- Post button, styling in progress OMG -->
-            <ul class="navbar-nav">
-                <li>
-                    <a href="post.html">
-                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button>
-                    </a>
-                </li>
-                <li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </li>
-            </ul>
+        <nav class="navbar fixed-bottom navbar-light bg-faded">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
+                <a href="post.html">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Post!</button>
+                </a>
+            </form>
         </nav>
     </div>
 </div>
