@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     // TODO control the DB interaction functions
 	userKey = firebaseUser.uid;
-	
+
 	// user info function for profile details
 	displayUserInfo(userKey);
 
@@ -20,9 +20,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   }
 });
 
-// onadd my list
-
-// onchange my list
-
-// onadd fr list
-// onchange fr list
+function userLogOut() {
+  firebase.auth().signOut();
+}

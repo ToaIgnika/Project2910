@@ -1,5 +1,6 @@
 .maincontent {
-    margin-top: 14%;
+    margin-top: 16%;
+    maragin-bottom: 16%;
 }
 
 .nav-tabs {
@@ -17,7 +18,7 @@
 
 .nav-tabs > li.active > a, .nav-tabs > li > a:hover {
     border: none;
-    color: #4285F4 !important;
+    color: #4285F4;
     background: transparent;
 }
 
@@ -58,4 +59,14 @@
 
 .hide {
     display: none;
+}
+
+#otherListHTML li {
+  list-style-position:inside;
+    border: 1px solid black;
+}
+
+#userListHTML li {
+  list-style-position:inside;
+    border: 1px solid black;
 }

@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-<div class="hide" id="body_wrap">
+<div class="" id="body_wrap">
     <div class="header">
         <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -30,7 +30,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="home.html">
-                <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 <i><span style="font-weight: 500;">F2E</span></i>
             </a>
             <div class="navbar-collapse collapse" id="menu-collapse">
@@ -49,7 +49,7 @@
                 <ul class="navbar-nav ml-auto justify-content-end">
                     <!-- Account should only appear after logging in -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="account">Account</a>
+                        <a class="nav-link" href="account.html">Account</a>
                     </li>
                 </ul>
             </div>
@@ -59,22 +59,20 @@
     <div class="maincontent">
         <div class="container">
             <div class="row">
-                <div class="col-xs-3">
-                    <img src="" alt="">
-                </div>
-                <div class="col-xs-8 col-xs-offset-1">
+                <div class="col-xs-12">
                     <form>
-                        <div class="input-group">
-                            <span class="input-group-addon" aria-hidden="true">Glyph icon of food here please</span>
-                            <input type="text" class="form-control" placeholder="Food item name"
-                                   aria-describedby="basic-addon1">
+                        <div class="input-group input-group-lg">
+                            <label for="foodname">Food item: &nbsp; </label>
+                            <input type="text" class="form-control" id="foodname">
                         </div>
-                        <div class="form-group">
-                            <label for="numfood">Quantity:</label>
+                        <br>
+                        <div class="input-group input-group-lg">
+                            <label for="numfood">Quantity:&nbsp;</label>
                             <input type="number" class="form-control" id="numfood">
                         </div>
-                        <div class="form-group">
-                            <label for="sel1">Condition:</label>
+                        <br>
+                        <div class="input-group input-group-lg">
+                            <label for="sel1">Condition:&nbsp;</label>
                             <select class="form-control" id="sel1">
                                 <option>Terrible</option>
                                 <option>Bad</option>
@@ -89,10 +87,11 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" cols="45" id="comment"></textarea>
+                        <br>
                         <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default">Reset Info</button>
-                            <button type="button" class="btn btn-default">Submit</button>
+                            <button type="button" class="btn btn-default" onclick="clearPost()">Reset Info</button>
+                            <button type="button" class="btn btn-default" onclick="addPost()">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -101,21 +100,15 @@
         <!-- Footer content -->
         <div class="footer">
             <!-- Bottom navigation with search -->
-            <nav class="navbar fixed-bottom">
-                <div class="container-fluid">
-                    <!-- Post button, styling in progress OMG -->
-                    <ul class="navbar-nav">
-                        <li>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+            <nav class="navbar fixed-bottom navbar-light bg-faded">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
+                </form>
             </nav>
         </div>
         <script src="js/firebase.js"></script>
+        <script src="js/post.js"></script>
     </div>
 </div>
 </body>
