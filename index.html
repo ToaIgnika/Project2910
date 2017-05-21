@@ -1,50 +1,69 @@
 <!doctype html>
 <html>
 <head>
-    <title>F2E: A Sharing App</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Styling -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <title>F2E: A Sharing App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+  integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+  integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+  integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+  integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+  crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1859709394286580',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
 </head>
 <body>
-<div class="hide" id="body_wrap">
-<!-- Header content -->
-<!-- Main content -->
-<div class="maincontent">
-    <div class="container">
+  <div class="hide" id="body_wrap">
+    <!-- Header content -->
+    <!-- Main content -->
+    <div class="maincontent">
+      <div class="container">
         <!-- Welcome message -->
         <div class="row welcomemessage">
-            <div class="col-xs-12">
-                <div class="welcomecontent centertext">
-                    <h1 class="display-3"><i>Welcome to <span class="greentext">F2E!</span></i></h1>
-                    <hr>
-                    <p class="lead">
-                        <strong>Have any extra food you don't need or you are missing some ingredients? <br>
-                            You've come to the right place!</strong><br>
-                        Log-in with your facebook account below to get started!
-                    </p>
-                    <button class="btn btn-outline-primary my-2 my-sm-0" onClick="signInFlow()" type="submit">Sign in with
-                        Facebook&nbsp;&nbsp;<strong>f</strong></button>
+          <div class="col-xs-12">
+            <div class="welcomecontent centertext">
+              <h1 class="display-3"><i>Welcome to <span class="greentext">F2E!</span></i></h1>
+              <hr>
+              <p class="lead">
+                <strong>Have any extra food you don't need or you are missing some ingredients? <br>
+                  You've come to the right place!</strong><br>
+                  Log-in with your facebook account below to get started!
+                </p>
+                <button class="btn btn-outline-primary my-2 my-sm-0" onClick="signInFlow()" type="submit">Sign in with
+                  Facebook&nbsp;&nbsp;<strong>f</strong></button>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-</div>
-<script src="js/firebase.js"></script>
-<script src="js/login.js"></script>
-</body>
-</html>
+      </div>
+      <script src="js/firebase.js"></script>
+      <script src="js/login.js"></script>
+    </body>
+    </html>

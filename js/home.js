@@ -8,7 +8,7 @@ initFirebaseApp();
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     const userUid = firebaseUser.uid;
-    userCheckHandle(userUid, firebaseUser);
+    //userCheckHandle(userUid, firebaseUser);
     // TODO control the DB interaction functions
     userList();
     friendList();
@@ -64,53 +64,37 @@ function friendList() {
   var user = firebase.auth().currentUser.uid;
   const bigList = document.getElementById('otherListHTML');
   listNode.on('child_added', function(snap) {
-    if (user != snap.val().poster_id) {
-      const li = document.createElement('li');
-      const pItemPoster = document.createElement('p');
-      const pItemName = document.createElement('p');
-      const pItemCount = document.createElement('p');
-      const pItemCondition = document.createElement('p');
-      const pItemComment = document.createElement('p');
+    const friendNode = getNodeAt('users/'+ user + '/friends');
+    friendNode.once('value', function(snapp) {
+      if (snapp.hasChild(snap.val().poster_id)) {
+        const li = document.createElement('li');
+        const pItemPoster = document.createElement('p');
+        const pItemName = document.createElement('p');
+        const pItemCount = document.createElement('p');
+        const pItemCondition = document.createElement('p');
+        const pItemComment = document.createElement('p');
 
 
-      pItemPoster.innerText = snap.val().poster_name;
-      pItemName.innerText = "Item: " + snap.val().item_name;
-      pItemCount.innerText = "Quantity: " + snap.val().item_count;
-      pItemCondition.innerText = "Condition: " + snap.val().item_condition;
-      pItemComment.innerText = "Comment: " + snap.val().item_comment;
+        pItemPoster.innerText = snap.val().poster_name;
+        pItemName.innerText = "Item: " + snap.val().item_name;
+        pItemCount.innerText = "Quantity: " + snap.val().item_count;
+        pItemCondition.innerText = "Condition: " + snap.val().item_condition;
+        pItemComment.innerText = "Comment: " + snap.val().item_comment;
 
-      li.setAttribute("id", snap.key);
-      li.appendChild(pItemPoster);
-      li.appendChild(pItemName);
-      li.appendChild(pItemCount);
-      li.appendChild(pItemCondition);
-      li.appendChild(pItemComment);
+        li.setAttribute("id", snap.key);
+        li.appendChild(pItemPoster);
+        li.appendChild(pItemName);
+        li.appendChild(pItemCount);
+        li.appendChild(pItemCondition);
+        li.appendChild(pItemComment);
 
-      bigList.appendChild(li);
-    }
-
+        bigList.appendChild(li);
+      }
+    });
   });
 }
 
-function userCheckHandle(uidUserVal, firebaseUser) {
-  const userNode = getNodeAt('users/');
-  userNode.once('value', function(snapshot) {
-    if (snapshot.hasChild(uidUserVal)) {
-      console.log("user exist");
-    } else {
-      const newUserNode = userNode.child(uidUserVal);
-      newUserNode.set({
-        'user_name' : firebaseUser.displayName,
-        'profile_url' : firebaseUser.photoURL,
-        'active_posts' : '0',
-        'location' : '0',
-        'fb_id' : '0',
-        'friends' : '0' // placeholder value, this will become a list
-      })
-      console.log("user created");
-    }
-  })
-}
+
 
 // create button to delete item
 function delButton (place, btnVal) {
