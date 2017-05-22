@@ -89,6 +89,7 @@ function friendList() {
         li.appendChild(pItemComment);
 
         bigList.appendChild(li);
+        //bigList.insertBefore(li, bigList.childNodes[0]);
       }
     });
   });

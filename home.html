@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="./css/listing.css">
 </head>
 <body>
-<div class="hide" id="body_wrap">
-    <div class="header">
+<div class="container-fluid hide" id="body_wrap">
+
         <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -55,10 +55,10 @@
                 </ul>
             </div>
         </nav>
-    </div>
     <!-- Main content -->
-    <div class="maincontent">
-        <div class="container-fluid">
+
+    <div class="content_block" style="padding:70px 0px 70px 0px">
+
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Nav tabs -->
@@ -98,19 +98,20 @@
                 </div>
             </div>
         </div>
-    </div>
     <!-- Footer content -->
     <div class="footer">
-        <!-- Bottom navigation with search -->
-        <div class="navbar fixed-bottom navbar-light bg-faded">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
-                <a class="btn btn-primary my-2 my-sm-0" href="post.html">
-                    Post!
-                </a>
-            </form>
+      <!-- Bottom navigation with search -->
+      <nav class="navbar fixed-bottom navbar-light bg-faded row">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-outline-success" type="submit">Search</button> &nbsp;
+          </span>
+          <span class="input-group-btn">
+            <button class="btn btn-outline-success" type="submit" onclick="post()">Post</button> &nbsp;
+          </span>
         </div>
+      </nav>
     </div>
 </div>
 <script src="js/firebase.js"></script>

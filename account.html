@@ -20,22 +20,10 @@
             crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/listing.css">
-    <style>
-        .sidecontent {
-            border-right: solid thin black;
-        }
-        .maincontent {
-            margin-bottom: 25%;
-        }
-        .hide {
-            display: none;
-        }
-    </style>
 </head>
 <body>
-<div class="hide" id="body_wrap">
-    <div class="header">
+<div class="container-fluid hide" id="body_wrap">
+
         <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -67,13 +55,12 @@
                 </ul>
             </div>
         </nav>
-    </div>
     <!-- Main content -->
-    <div class="maincontent">
-        <div class="container-fluid">
-            <div class="row content">
-                <div class="col-xs-3 sidecontent">
-                    <p><img src="" alt="usrprofileimg" id="profile_url"></p>
+
+
+            <div class="content_block" style="padding:70px 0px 70px 0px">
+
+                    <img src="" alt="usrprofileimg" id="profile_url"><br>
                     <p><span id="user_name"></span></p><br>
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item"><a class="nav-link active" href="#tab_a" data-toggle="pill">Statistics</a>
@@ -84,7 +71,7 @@
                         <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill" onclick="userLogOut()">Logout</a>
                         </li>
                     </ul>
-                </div>
+
 
                 <div class="col-xs-9">
                     <div class="row">
@@ -105,7 +92,7 @@
                                 <p>Pending</p>
                             </div>
                             <div class="tab-pane" id="tab_d">
-                                <div class="container-fluid">
+
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <ul id="usrlstng">
@@ -129,25 +116,27 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
     <!-- Footer content -->
     <div class="footer">
-        <!-- Bottom navigation with search -->
-        <nav class="navbar fixed-bottom navbar-light bg-faded">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;
-                <a class="btn btn-primary my-2 my-sm-0" href="post.html">
-                    Post!
-                </a>
-            </form>
-        </nav>
+      <!-- Bottom navigation with search -->
+      <nav class="navbar fixed-bottom navbar-light bg-faded row">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-outline-success" type="submit">Search</button> &nbsp;
+          </span>
+          <span class="input-group-btn">
+            <button class="btn btn-outline-success" type="submit" onclick="post()">Post</button> &nbsp;
+          </span>
+        </div>
+      </nav>
     </div>
 </div>
 <script src="js/firebase.js"></script>

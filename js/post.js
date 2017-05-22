@@ -39,6 +39,6 @@ function addPost() {
 function clearPost() {
   document.getElementById('foodname').value = "";
   document.getElementById('numfood').value = "";
-  document.getElementById('sel1').selectedIndex = 0;
+  document.getElementById('sel1').selectedIndex = 2;
   document.getElementById('comment').value = "";
 }
