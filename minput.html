@@ -1,0 +1,21 @@
+<html>
+ <head>
+ <!-- styles put here, but you can include a CSS file and reference it instead! -->
+   <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+     #map { height: 90%; }
+   </style>
+ </head>
+ <body>
+   <!-- TODO 1: Create a place to put the map in the HTML-->
+   <div id ="map"></div> 
+	<button type ="button" onClick = "pushMarker()">click me</button>
+	<script src = "minput.js"></script>
+	
+   <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
+   <script async defer 
+	src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAN3l07xt3MNImKu_0TheBDiDD3aU6blFU&v=3&callback=initMap">
+   
+   </script>
+ </body>
+</html>
