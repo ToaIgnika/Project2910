@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>F2E - a food sharing application</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -21,8 +22,7 @@
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
     <link href="css/about.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="home.css">
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 </head>
 <body>
@@ -66,13 +66,9 @@
     <div class="container c-head">
         <!-- Page Heading -->
         <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header">
-                <h1>F2E:
-                </h1>
-                <h3>A food sharing application</h3>
-                </div>
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">A Food Sharing Application</h1>
+            </div>
         </div>
         <!-- /.row -->
 
@@ -97,21 +93,20 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img width="250px" height="250px" class="img-responsive img-circle img-pad" src="images/remy.png"
-                         alt="" onclick="re()">
+                    <img class="img-responsive img-circle img-pad" src="images/remy.png" alt="" onclick = "re()">
                     <div class="caption">
                         <h3>Remy Truong<br>
                             <small>Drop Bear Researcher</small>
                         </h3>
                         <p>Raised in the land down under, Remy enjoys cuddling with his joeys
-                            and wrassling koalas.</p>
+                        and wrassling koalas.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img width="250px" height="250px" class="img-responsive img-circle img-pad"
-                         src="images/justin.png" alt="" onclick="ju()">
+                    <img class="img-responsive img-circle img-pad"
+                         src="https://i.gyazo.com/088a2d62ea99982c19011438d561f191.png" alt="" onclick ="ju()">
                     <div class="caption">
                         <h3>Justin Pancho<br>
                             <small>Full Stack Developer</small>
@@ -122,11 +117,10 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img width="250px" height="250px" class="img-responsive img-circle img-pad" src="images/eugene.jpg"
-                         alt="" onclick="eu()">
+                    <img class="img-responsive img-circle img-pad" src="images/eugene.jpg" alt="" onclick = "eu()">
                     <div class="caption">
                         <h3>Eugene Myroniuk<br>
-                            <small>JG carry</small>
+                            <small>Full Stack Developer</small>
                         </h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt
                             maxime.</p>
@@ -135,21 +129,18 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img width="250px" height="250px" class="img-responsive img-circle img-pad" src="images/mike.png"
-                         alt="" onclick="mi()">
+                    <img class="img-responsive img-circle img-pad" src="images/mike.png" alt="" onclick= "mi()">
                     <div class="caption">
                         <h3>Mike Dumycz<br>
                             <small>YoRHa Model 29N</small>
                         </h3>
-                        <p>Is a super cool guy who doesn't afraid of anything. Pretty okay at coding and also at video
-                            games and stuff. Loves pets, especially dogs.</p>
+                        <p>Is a super cool guy who doesn't afraid of anything. Pretty okay at coding and also at video games and stuff. Loves pets, especially dogs.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img width="250px" height="250px" class="img-responsive img-circle img-pad"
-                         src="images/alex.png" alt="" onclick="al()">
+                    <img class="img-responsive img-circle img-pad" src="http://i.imgur.com/Weu7xLh.jpg" alt="" onclick ="al()">
                     <div class="caption">
                         <h3>Alex Campbell<br>
                             <small>Fat Stacks Developer</small>
@@ -169,43 +160,38 @@
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
                     <img class="img-responsive img-pad"
-                         src="images/take2.png"
-                         alt=""
-                         width="200px"
-                         height="200px">
+                         src="take2.png"
+                         alt="">
                     <div class="caption">
                         <h3>Take 2<br>
                             <small>Recipe App</small>
                         </h3>
                         <p>Input two ingredients to get a suggested recipe.</p>
-                        <a href="take2foods.com" class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
+						<a href="take2foods.com" class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive img-pad" src="images/wasted.png" alt="" width="200px"
-                         height="200px">
+                    <img class="img-responsive img-pad" src="wasted.png" alt="">
                     <div class="caption">
                         <h3>Wasted<br>
                             <small>Expiry Reminder</small>
                         </h3>
                         <p>Tracks and reminds users of inputted items' expiry date.</p>
-                        <a href="http://students.bcitdev.com/A00989687/forAffiliates/WASTED.html"
-                           class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
+						<a href="http://students.bcitdev.com/A00989687/forAffiliates/WASTED.html" class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive img-pad" src="images/freshness.png" alt="" width="200px"
-                         height="200px">
+                    <img class="img-responsive img-pad" src="http://xyz-online.xyz/images/logo6.png" alt="">
                     <div class="caption">
                         <h3>Freshness<br>
                             <small>Food 911</small>
                         </h3>
                         <p>Search through items and how to prevent food from going to waste.</p>
-                        <a href="http://xyz-online.xyz/" class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
+						<a href="http://xyz-online.xyz/" class="btn btn-outline-success my-2 my-sm-0" role="button">Visit</a>
                     </div>
                 </div>
             </div>
@@ -228,9 +214,9 @@
 
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/firebase.js"></script>
-    <script src="js/about.js"></script>
-    <script src="js/easterEgg.js"></script>
+    <script src="firebase.js"></script>
+    <script src="about.js"></script>
+	  <script src="easterEgg.js"></script>
 </div>
 </body>
 
