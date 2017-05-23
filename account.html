@@ -60,7 +60,7 @@
 
             <div class="content_block" style="padding:70px 0px 70px 0px">
 
-                    <img src="" alt="usrprofileimg" id="profile_url"><br>
+                    <img src="" alt="usrprofileimg" class="img-thumbnail" id="profile_url"><br>
                     <p><span id="user_name"></span></p><br>
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item"><a class="nav-link active" href="#tab_a" data-toggle="pill">Statistics</a>
@@ -128,9 +128,9 @@
       <!-- Bottom navigation with search -->
       <nav class="navbar fixed-bottom navbar-light bg-faded row">
         <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search">
+          <input class="form-control" type="text" placeholder="Search" id="ps_bar">
           <span class="input-group-btn">
-            <button class="btn btn-outline-success" type="submit">Search</button> &nbsp;
+            <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button> &nbsp;
           </span>
           <span class="input-group-btn">
             <button class="btn btn-outline-success" type="submit" onclick="post()">Post</button> &nbsp;

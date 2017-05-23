@@ -16,6 +16,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 }
 });
 
+window.onload = function () {
+    var url = document.location.href,
+        itemval = url.substring(url.indexOf('=') + 1);
+    document.getElementById('foodname').value = decodeURIComponent(itemval);
+}
+
+
+
 function addPost() {
   const foodItemName = document.getElementById('foodname');
   const foodItemCount = document.getElementById('numfood');

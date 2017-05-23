@@ -51,5 +51,15 @@ function displayUserInfo(user) {
 }
 
 function post() {
-  window.location = "post.html";
+  var post_item = document.getElementById('ps_bar').value,
+        url = 'http://f2e.ca/post.html?=' + encodeURIComponent(post_item);
+    document.location.href = url;
+  window.location = url;
+}
+
+function search() {
+  var post_item = document.getElementById('ps_bar').value,
+        url = 'http://f2e.ca/search.html?=' + encodeURIComponent(post_item);
+    document.location.href = url;
+  window.location = url;
 }
