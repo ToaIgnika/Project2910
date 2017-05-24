@@ -78,18 +78,17 @@ function displayText() {
           }
           li.innerHTML = snapT.val().msg;
           chatUl.appendChild(li);
+          var element = chatUl;
+          element.scrollTop = element.scrollHeight;
         });
       }
     });
 }
 
 function sendText(textItemVal) {
-  console.log(textItemVal);
   var user = firebase.auth().currentUser;
   var textVal = document.getElementById(textItemVal).value;
-  console.log(user.uid + document.getElementById(textItemVal).value);
   if (user && textVal != '') {
-    console.log('called twice');
     const chatTxt = getNodeAt('chat/' + textItemVal).push().set({
       'msg' : textVal,
       'user' : user.uid
