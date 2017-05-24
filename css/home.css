@@ -56,14 +56,6 @@
     display: none;
 }
 
-#otherListHTML li {
-
-}
-
-#userListHTML li {
-
-}
-
 .card {
     margin-bottom: 50px;
     width: inherit;
@@ -71,4 +63,10 @@
 
 .container-fluid {
     width: 100%;
+}
+
+.entrycontent {
+    padding: 7px;
+    margin-bottom: 5px;
+    border: solid thin darkgrey;
 }

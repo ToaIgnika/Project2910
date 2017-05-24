@@ -36,6 +36,7 @@ function userList() {
       firstCol.className = "col-xs-3";
       const secondCol = document.createElement('div');
       secondCol.className = "col-xs-9";
+      row.className += " entrycontent";
 
       const li = document.createElement('li');
       delButton(li, snap.key);
@@ -53,7 +54,8 @@ function userList() {
       firstCol.appendChild(pItemName);
       firstCol.appendChild(pItemCount);
       secondCol.appendChild(pItemCondition);
-      secondCol.appendChild(pItemComment);
+      secondCol.appendChild(pItemComment)
+      delButton(secondCol,snap.key);
 
       /* Remy's Stuff here */
       row.setAttribute("id", snap.key);
@@ -95,11 +97,11 @@ function friendList() {
         const row1 = document.createElement('div');
         row1.className = "row";
         const firstCol = document.createElement('div');
-        firstCol.className = "col-xs-6";
+        firstCol.className = "col-xs-3";
         const secondCol = document.createElement('div');
-        secondCol.className = "col-xs-6";
+        secondCol.className = "col-xs-8";
+        row1.className += " entrycontent";
 
-        textButton(firstCol, snap.val().poster_id);
         const li = document.createElement('li');
         const pItemPoster = document.createElement('p');
         const pItemName = document.createElement('p');
@@ -190,7 +192,7 @@ function textButton (place, btnVal) {
   var btn = document.createElement("BUTTON");        // Create a <button> element
   //btn.setAttribute("id", "btnRemove");
   btn.setAttribute("value", btnVal);
-  btn.setAttribute("onclick", "goToChat(this)");
+  btn.setAttribute("onclick", "(this)");
   var s = document.createElement("input");
   s.src = "images/del_icon.png";
   s.type = "image";
