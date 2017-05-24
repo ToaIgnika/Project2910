@@ -57,13 +57,11 @@
 }
 
 #otherListHTML li {
-  list-style-position:inside;
-    border: 1px solid black;
+
 }
 
 #userListHTML li {
-  list-style-position:inside;
-    border: 1px solid black;
+
 }
 
 .card {

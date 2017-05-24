@@ -19,124 +19,105 @@
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 </head>
 <body>
 <div class="container-fluid hide" id="body_wrap">
 
-        <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                    data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="home.html">
-                <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <i><span style="font-weight: 500;">F2E</span></i>
-            </a>
-            <div class="navbar-collapse collapse" id="menu-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Home</a>
-                    </li>
-                    <!-- Links to a diff page probably; yet to be decided -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Maps</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto justify-content-end">
-                    <!-- Account should only appear after logging in -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="account.html">Account</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#menu-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="home.html">
+            <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <i><span style="font-weight: 500;">F2E</span></i>
+        </a>
+        <div class="navbar-collapse collapse" id="menu-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <!-- Links to a diff page probably; yet to be decided -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Maps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto justify-content-end">
+                <!-- Account should only appear after logging in -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="account.html">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <!-- Main content -->
 
 
-            <div class="content_block" style="padding:70px 0px 70px 0px">
+    <div class="content_block" style="padding:70px 0px 70px 0px">
 
-                    <img src="" alt="usrprofileimg" class="img-thumbnail" id="profile_url"><br>
-                    <p><span id="user_name"></span></p><br>
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a class="nav-link active" href="#tab_a" data-toggle="pill">Statistics</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#tab_b" data-toggle="pill">Interactions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#tab_c" data-toggle="pill">Settings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#tab_d" data-toggle="pill">MyListings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill" onclick="userLogOut()">Logout</a>
-                        </li>
-                    </ul>
+        <img src="" alt="usrprofileimg" class="img-thumbnail" id="profile_url"><br>
+        <p><span id="user_name"></span></p><br>
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item"><a class="nav-link active" href="#tab_d" data-toggle="pill">MyListings</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tab_b" data-toggle="pill">Interactions</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill" onclick="userLogOut()">Logout</a>
+            </li>
+        </ul>
 
 
-                <div class="col-xs-9">
-                    <div class="row">
-                        <div class="tab-content col-md-10">
-                            <div class="tab-pane active" id="tab_a">
-                                <h4>Stats</h4>
-                                <p>Things like trades, posts etc.
-                                    <span id="numtradesHTML"></span>
-                                    <!--etc -->
-                                </p>
-                            </div>
-                            <div class="tab-pane" id="tab_b">
-                                <h4>Interactions</h4>
-                                <p>Structure same as listings, just have all their trades?</p>
-                            </div>
-                            <div class="tab-pane" id="tab_c">
-                                <h4>Settings</h4>
-                                <p>Pending</p>
-                            </div>
-                            <div class="tab-pane" id="tab_d">
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="tab-content col-md-10">
+                    <div class="tab-pane" id="tab_b">
+                        <h4>Interactions</h4>
+                        <p>Structure same as listings, just have all their trades?</p>
+                    </div>
+                    <div class="tab-pane active" id="tab_d">
 
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <ul id="usrlstng">
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-xs-3">
-                                                            <p><span class="foodname"></span></p>
-                                                            <p><span class="date_posted"></span></p>
-                                                        </div>
-                                                        <div class="col-xs-9">
-                                                            <p><span class="desc"></span></p>
-                                                            <button type="button" class="btn btn-default"
-                                                                    aria-label="trash">
-                                                                <span class="glyphicon glyphicon-trash"
-                                                                      aria-hidden="true"></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul id="usrlstng">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <p><span class="foodname"></span></p>
+                                                <p><span class="date_posted"></span></p>
+                                            </div>
+                                            <div class="col-xs-9">
+                                                <p><span class="desc"></span></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+        </div>
+    </div>
 
 
     <!-- Footer content -->
     <div class="footer">
-      <!-- Bottom navigation with search -->
-      <nav class="navbar fixed-bottom navbar-light bg-faded row">
-        <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search" id="ps_bar">
-          <span class="input-group-btn">
+        <!-- Bottom navigation with search -->
+        <nav class="navbar fixed-bottom navbar-light bg-faded row">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search" id="ps_bar">
+                <span class="input-group-btn">
             <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button> &nbsp;
           </span>
-          <span class="input-group-btn">
+                <span class="input-group-btn">
             <button class="btn btn-outline-success" type="submit" onclick="post()">Post</button> &nbsp;
           </span>
-        </div>
-      </nav>
+            </div>
+        </nav>
     </div>
 </div>
 <script src="js/firebase.js"></script>

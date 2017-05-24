@@ -23,17 +23,18 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             updates['/users/' + firebaseUser.uid + '/fb_id'] = response.id;
             for (i = 0; i < response.friends.data.length; i++) {
               firebase.database().ref('/fb_fb/' + response.friends.data[i].id).once('value').then(function(snapshot) {
-                console.log(snapshot.val());
-                var up2 = {};
-                up2['/users/' + firebaseUser.uid + '/friends/' + snapshot.val()] = '1';
-                up2['/users/' + snap.val() + '/friends/' + firebaseUser.uid] = '1';
-                return firebase.database().ref().update(up2);
+                if(snapshot.val()) {
+                  var up2 = {};
+                  up2['/users/' + firebaseUser.uid + '/friends/' + snapshot.val()] = '1';
+                  up2['/users/' + snapshot.val() + '/friends/' + firebaseUser.uid] = '1';
+                  return firebase.database().ref().update(up2);
+                }
               });
             }
             return firebase.database().ref().update(updates).then(function() {
-            window.location = "../home.html";
+              window.location = "../home.html";
+            });
           });
-        });
         } else {
           window.location = "../home.html";
         }
