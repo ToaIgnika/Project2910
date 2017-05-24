@@ -57,11 +57,11 @@ function displayText() {
         chatBlock.appendChild(chatInputField);
 
         const chatNode = getNodeAt('/chat/' + snap.key);
-        chatNode.on.limitToLast(10).('child_added', function(snapT) {
+        chatNode.limitToLast(10).on('child_added', function(snapT) {
           const li = document.createElement('li');
           if (snapT.val().user == user) {
             li.classList.add('myLi');
-          } if (snapT.va;().user == "system") {
+          } if (snapT.val().user == "system") {
             li.classList.add("systemLi")
           } else {
             li.classList.add('otherLi');
@@ -90,38 +90,6 @@ function sendText(textItemVal) {
   }
 }
 
-function goToChat(posterUidVal) {
-  var user = firebase.auth().currentUser.uid;
-  var chatCatch = uidBond(posterUidVal.value, user);
-  if (getNodeAt('/chat/').hasChild(chatCatch)) {
-    //TODO redirect to chat with posttemp message and chat opened (ffs)
-    getNodeAt('/chat/' + chatCatch).push().set({
-      'msg' : 'Hi, sup with this item?',
-      'user' : user
-    });
-  } else {
-    getNodeAt('/chat/' + chatCatch).push().set({
-      'msg' : 'Welcome to the chat!',
-      'user' : 'system'
-    });
-    //TODO create chat w/ welcome message and redirect there
-  }
 
-  // create button to delete item
-  function textButton (place, btnVal) {
-    var btn = document.createElement("BUTTON");        // Create a <button> element
-    //btn.setAttribute("id", "btnRemove");
-    btn.setAttribute("value", btnVal);
-    btn.setAttribute("onclick", "goToChat(this)");
-    var s = document.createElement("input");
-    s.src = "images/del_icon.png";
-    s.type = "image";
-    btn.appendChild(s);
-    //var t = document.createTextNode('<img src ="images/icon.png">');    // Create a text node
-    //btn.appendChild(t);                                // Append the text to <button>
-    place.appendChild(btn);                    // Append <button> to <body>
-  }
 
   // textButton(newLiPlace, snap.val().poster_id);
-
-}

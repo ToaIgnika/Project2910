@@ -63,11 +63,3 @@ function search() {
     document.location.href = url;
   window.location = url;
 }
-
-function uidBond(uidOne, uidTwo) {
-  if (uidOne > uidTwo) {
-    return uidTwo + uidOne;
-  } else {
-    return uidOne + uidTwo;
-  }
-}
