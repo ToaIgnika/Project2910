@@ -35,7 +35,7 @@ function userList() {
       const firstCol = document.createElement('div');
       firstCol.className = "col-xs-3";
       const secondCol = document.createElement('div');
-      secondCol.className = "col-xs-9";
+      secondCol.className = "col-xs-6 offset-cs-2";
       row.className += " entrycontent";
 
       const li = document.createElement('li');

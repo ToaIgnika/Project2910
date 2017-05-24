@@ -1,5 +1,6 @@
 .nav-tabs {
     border-bottom: 2px solid #DDD;
+    justify-content: center;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
@@ -63,6 +64,7 @@
 
 .container-fluid {
     width: 100%;
+    margin: 0;
 }
 
 .entrycontent {
