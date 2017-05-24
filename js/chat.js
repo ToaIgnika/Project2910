@@ -9,6 +9,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     // TODO control the DB interaction functions
     displayText();
+
     const wrap = document.getElementById('body_wrap');
     wrap.classList.remove('hide');
   } else {
@@ -16,13 +17,22 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   }
 });
 
+/*
+window.onload = function () {
+    var url = document.location.href,
+        itemval = url.substring(url.indexOf('=') + 1);
+    //document.getElementById('searchItemHTML').value = decodeURIComponent(itemval);
+    document.getElementById(decodeURIComponent(itemval) + 'btn').click();
+}*/
 
 function displayText() {
   var user = firebase.auth().currentUser.uid;
   const chatList = getNodeAt('/chat/');
   chatList.off();
   const chatWindow = document.getElementById('chatWindowHTML');
-
+  chatWindow.innerHTML = '';
+  var url = document.location.href,
+      itemval = url.substring(url.indexOf('=') + 1);
   chatList.on('child_added', function(snap) {
       var otherU = snap.key.replace(user, '');
       if (otherU.length != snap.key.length) {
@@ -37,19 +47,39 @@ function displayText() {
         chatButton.setAttribute('data-target', '#' + otherU);
         chatButton.setAttribute('data-parent', '#accordion');
         chatButton.className = 'btn btn-outline-success';
+        chatButton.id = otherU + 'btn';
 
         getNodeAt('/users/' + otherU).once('value', function(snip) {
           chatButton.innerHTML = snip.val().user_name;
         })
 
         // create ul/input field block
+
         const chatBlock = document.createElement('div');
         chatBlock.classList.add('collapse');
+        if (itemval == otherU) {
+          chatBlock.classList.add('show');
+        }
         chatBlock.id = otherU;
 
         // create ul window
         const chatUl = document.createElement('ul');
         chatUl.classList.add('ulChatText');
+
+        // create div wrap
+        const inputGroup = document.createElement('div');
+        inputGroup.className = 'input-group';
+
+        // create coll button
+        const hideButton = document.createElement('button');
+        hideButton.className = 'btn btn-outline-success';
+        hideButton.value = otherU + 'btn';
+        hideButton.setAttribute('onclick', '(document.getElementById(this.value)).click()');
+        hideButton.innerHTML = 'Close';
+
+        // span for coll button
+        const spanEl = document.createElement('span');
+        spanEl.className = 'input-group-btn';
 
         // create input field
         const chatInputField = document.createElement('input');
@@ -58,13 +88,17 @@ function displayText() {
         chatInputField.classList.add('form-control');
         chatInputField.id = snap.key;
 
+        spanEl.appendChild(hideButton);
+        inputGroup.appendChild(chatInputField);
+        inputGroup.appendChild(spanEl);
+
+        chatBlock.appendChild(chatUl);
+        chatBlock.appendChild(inputGroup);
+
         divPanel.appendChild(chatButton);
         divPanel.appendChild(chatBlock);
-        chatWindow.appendChild(chatButton);
-        chatWindow.appendChild(chatBlock);
-        chatBlock.appendChild(chatUl);
-        chatBlock.appendChild(chatInputField);
         chatWindow.appendChild(divPanel);
+
 
         const chatNode = getNodeAt('/chat/' + snap.key);
         chatNode.limitToLast(10).on('child_added', function(snapT) {

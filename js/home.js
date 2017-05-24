@@ -109,6 +109,7 @@ function friendList() {
         const pItemCondition = document.createElement('p');
         const pItemComment = document.createElement('p');
 
+        textButton(secondCol, snap.val().poster_id);
 
         pItemPoster.innerText = snap.val().poster_name;
         pItemName.innerText = "Item: " + snap.val().item_name;
@@ -184,6 +185,7 @@ function goToChat(posterUidVal) {
         'user' : 'system'
       });
     }
+    chatWith(posterUidVal.value);
   });
 }
 
@@ -192,7 +194,7 @@ function textButton (place, btnVal) {
   var btn = document.createElement("BUTTON");        // Create a <button> element
   //btn.setAttribute("id", "btnRemove");
   btn.setAttribute("value", btnVal);
-  btn.setAttribute("onclick", "(this)");
+  btn.setAttribute("onclick", "goToChat(this)");
   var s = document.createElement("input");
   s.src = "images/del_icon.png";
   s.type = "image";

@@ -63,3 +63,9 @@ function search() {
     document.location.href = url;
   window.location = url;
 }
+
+function chatWith(chatLoc) {
+  var url = 'http://f2e.ca/chat.html?=' + encodeURIComponent(chatLoc);
+  document.location.href = url;
+  window.location = url;
+}
