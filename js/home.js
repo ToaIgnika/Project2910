@@ -28,6 +28,15 @@ function userList() {
     var user = firebase.auth().currentUser.uid;
     listNode.on('child_added', function (snap) {
         if (user == snap.val().poster_id) {
+
+            /* Remy's Stuff here */
+            const row = document.createElement('div');
+            row.className = "row";
+            const firstCol = document.createElement('div');
+            firstCol.className = "col-xs-3";
+            const secondCol = document.createElement('div');
+            secondCol.className = "col-xs-9";
+
             const li = document.createElement('li');
             delButton(li, snap.key);
             const pItemName = document.createElement('p');
@@ -40,13 +49,26 @@ function userList() {
             pItemCondition.innerText = "Condition: " + snap.val().item_condition;
             pItemComment.innerText = "Comment: " + snap.val().item_comment;
 
+            /* Remy's Stuff here */
+            firstCol.appendChild(pItemName);
+            firstCol.appendChild(pItemCount);
+            secondCol.appendChild(pItemCondition);
+            secondCol.appendChild(pItemComment);
+
+            /* Remy's Stuff here */
+            row.setAttribute("id", snap.key);
+            row.appendChild(firstCol);
+            row.appendChild(secondCol);
+
+            /*
             li.setAttribute("id", snap.key);
             li.appendChild(pItemName);
             li.appendChild(pItemCount);
             li.appendChild(pItemCondition);
             li.appendChild(pItemComment);
+            */
 
-            bigList.appendChild(li);
+            bigList.appendChild(row);
         }
     });
 }
@@ -70,12 +92,12 @@ function friendList() {
             if (snapp.hasChild(snap.val().poster_id)) {
 
                 /* Remy's Stuff here */
-                const row = document.createElement('div');
-                row.className = "row";
+                const row1 = document.createElement('div');
+                row1.className = "row";
                 const firstCol = document.createElement('div');
-                firstCol.className = "col-xs-3";
+                firstCol.className = "col-xs-6";
                 const secondCol = document.createElement('div');
-                secondCol.className = "col-xs-9";
+                secondCol.className = "col-xs-6";
 
 
                 const li = document.createElement('li');
@@ -100,18 +122,19 @@ function friendList() {
                 secondCol.appendChild(pItemComment);
 
                 /* Remy's Stuff here */
-                row.setAttribute("id", snap.key);
-                row.appendChild(firstCol);
-                row.appendChild(secondCol);
+                row1.setAttribute("id", snap.key);
+                row1.appendChild(firstCol);
+                row1.appendChild(secondCol);
 
+                /*
                 li.setAttribute("id", snap.key);
                 li.appendChild(pItemPoster);
                 li.appendChild(pItemName);
                 li.appendChild(pItemCount);
                 li.appendChild(pItemCondition);
                 li.appendChild(pItemComment);
-
-                bigList.appendChild(row);
+*/
+                bigList.appendChild(row1);
                 //bigList.insertBefore(li, bigList.childNodes[0]);
             }
         });
