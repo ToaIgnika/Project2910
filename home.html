@@ -7,7 +7,7 @@
     <!-- Styling -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="./css/home.css">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
             integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
             crossorigin="anonymous"></script>
@@ -64,14 +64,14 @@
                 <div class="card">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#firstpane" role="button"
-                                                                  data-toggle="tab">Latest Posts</a></li>&nbsp; |&nbsp;
+                                                                  data-toggle="tab"><span class="badge badge-pill badge-success">Latest Posts</span></a></li>&nbsp; |&nbsp;&nbsp;
                         <li role="presentation"><a href="#secondpane" role="button"
-                                                   data-toggle="tab">Your Listings</a></li>
+                                                   data-toggle="tab"><span class="badge badge-pill badge-success">Your Listings</span></a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="firstpane">
-                            <div id="otherListHTML">
+                            <div class="container-fluid" id="otherListHTML">
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="secondpane">
