@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -38,7 +39,7 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,6 +60,31 @@
                 </ul>
             </div>
         </div>
+    </nav> -->
+
+
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-collapse" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="">
+            <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <i><span style="font-weight: 500;">F2E</span></i>
+        </a>
+        <div class="navbar-collapse collapse" id="menu-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#share">About</a>
+                </li>
+                <!-- Links to a diff page probably; yet to be decided -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#food">Food Waste</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Get Started</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Header -->
@@ -70,7 +96,7 @@
                 <hr class="intro-divider">
                 <ul class="list-inline intro-social-buttons">
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#login-modal">
+                        <a href="#" class="btn btn-secondary btn-lg">
                             <i class="fa fa-facebook fa-fw"></i> <span class="network-name">Get Started</span>
                         </a>
                     </li>
@@ -124,18 +150,6 @@
 
     </section>
     <!-- /.content-section-b -->
-
-    <!-- fb login modal -->
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>Login with Facebook</h1><br>
-                <form>
-                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                </form>
-            </div>
-        </div>
-    </div>
 
     </aside>
     <!-- /.banner -->
