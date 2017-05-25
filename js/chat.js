@@ -114,7 +114,7 @@ function displayText() {
       chatWindow.appendChild(divPanel);
 
       const chatNode = getNodeAt('/chat/' + snap.key);
-      chatNode.limitToLast(10).on('child_added', function(snapT) {
+      chatNode.limitToLast(15).on('child_added', function(snapT) {
         const li = document.createElement('li');
         if (snapT.val().user == user) {
           li.className = ('myLi');

@@ -40,8 +40,8 @@ function addPost() {
       'poster_name' : user.displayName
     });
   }
-  alert("Post added!");
   clearPost();
+  afterPost();
 }
 
 function clearPost() {
@@ -49,4 +49,10 @@ function clearPost() {
   document.getElementById('numfood').value = "";
   document.getElementById('sel1').selectedIndex = 2;
   document.getElementById('comment').value = "";
+}
+
+function afterPost() {
+  var url = 'http://f2e.ca/home.html?=' + encodeURIComponent('true');
+  document.location.href = url;
+  window.location = url;
 }
