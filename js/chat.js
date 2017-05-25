@@ -96,7 +96,8 @@ function displayText() {
       if (itemval != otherU && itemval != 'http://f2e.ca/chat.html') {
         divPanel.classList.add('hide');
         showAll = false;
-      } else {
+      }
+      if (itemval == otherU && itemval != 'http://f2e.ca/chat.html'){
         chatBlock.classList.add('show');
       }
 
