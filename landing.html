@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -53,7 +54,7 @@
                         <a class="nav-link" href="#food">Food Waste</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Get Started</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal">Get Started</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +70,9 @@
                 <hr class="intro-divider">
                 <ul class="list-inline intro-social-buttons">
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Get Started</span></a>
+                        <a href="#" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#login-modal">
+                            <i class="fa fa-facebook fa-fw"></i> <span class="network-name">Get Started</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -116,12 +119,23 @@
                     <a href="http://www.lovefoodhatewaste.ca/"><img class="img-fluid" src="images/love.jpg" alt="" href=""></a>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
 
     </section>
     <!-- /.content-section-b -->
+
+    <!-- fb login modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Login with Facebook</h1><br>
+                <form>
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
 
     </aside>
     <!-- /.banner -->
