@@ -44,7 +44,7 @@ function searchList(displayCount) {
   listNode.on('child_added', function(snap) {
     const friendNode = getNodeAt('users/'+ user + '/friends');
     friendNode.once('value', function(snapp) {
-      if (snapp.hasChild(snap.val().poster_id) && snap.val().item_name.toUpperCase() == searchItem.value.toUpperCase() && itemsShown <= displayCount) {
+      if (snapp.hasChild(snap.val().poster_id) && searchAlg(searchItem.value, snap.val().item_name)) {
         const li = document.createElement('li');
         const pItemPoster = document.createElement('p');
         const pItemName = document.createElement('p');
@@ -78,4 +78,13 @@ function remList() {
   listNode.on('child_removed', function(snap) {
     const liDel = document.getElementById(snap.key);
   });
+}
+
+function searchAlg (sItem, cItem) {
+  if (cItem.toUpperCase().indexOf(sItem.toUpperCase()) == -1) {
+    return false;
+  } else {
+    return true;
+  }
+
 }
