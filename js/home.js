@@ -33,13 +33,12 @@ function userList() {
             const row = document.createElement('div');
             row.className = "row";
             const firstCol = document.createElement('div');
-            firstCol.className = "col-xs-3";
+            firstCol.className = "firstColfloat";
             const secondCol = document.createElement('div');
-            secondCol.className = "col-xs-6 offset-cs-2";
+            secondCol.className = "secondColfloat";
             row.className += " entrycontent";
 
             const li = document.createElement('li');
-            delButton(li, snap.key);
             const pItemName = document.createElement('p');
             const pItemCount = document.createElement('p');
             const pItemCondition = document.createElement('p');
@@ -54,7 +53,7 @@ function userList() {
             firstCol.appendChild(pItemName);
             firstCol.appendChild(pItemCount);
             secondCol.appendChild(pItemCondition);
-            secondCol.appendChild(pItemComment)
+            secondCol.appendChild(pItemComment);
             delButton(secondCol, snap.key);
 
             /* Remy's Stuff here */
@@ -97,10 +96,9 @@ function friendList() {
                 const row1 = document.createElement('div');
                 row1.className = "row";
                 const firstCol = document.createElement('div');
-                firstCol.className = "col-xs-3";
+                firstCol.className = "firstColfloat";
                 const secondCol = document.createElement('div');
-                secondCol.className = "col-xs-7";
-                secondCol.className += " textnowrap";
+                secondCol.className = "secondColfloat";
                 row1.className += " entrycontent";
 
                 const li = document.createElement('li');
@@ -148,13 +146,12 @@ function friendList() {
 // create button to delete item
 function delButton(place, btnVal) {
     var btn = document.createElement("BUTTON");        // Create a <button> element
+
     btn.setAttribute("id", "btnRemove");
     btn.setAttribute("value", btnVal);
     btn.setAttribute("onclick", "delListItem(this)");
-    var s = document.createElement("input");
-    s.src = "images/del_icon.png";
-    s.type = "image";
-    btn.appendChild(s);
+    btn.className = "badge badge-pill badge-danger";
+    btn.innerHTML = "<h6><small>Delete</small></h6>";
     //var t = document.createTextNode('<img src ="images/icon.png">');    // Create a text node
     //btn.appendChild(t);                                // Append the text to <button>
     place.appendChild(btn);                    // Append <button> to <body>
@@ -191,9 +188,9 @@ function goToChat(posterUidVal) {
 
 // create button to delete item
 function textButton(place, btnVal) {
-    var span = document.createElement('span');
+    var span = document.createElement('button');
     span.className = "badge badge-pill badge-success";
-    span.innerText = "Chat here!";
+    span.innerHTML = "<h6><small>Send message</small></h6>";
 //btn.setAttribute("id", "btnRemove");
     span.setAttribute("value", btnVal);
     span.setAttribute("onclick", "goToChat(this)");
