@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add an Item!</title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styling -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/home.css">
@@ -18,9 +19,46 @@
             crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
+    <link rel="stylesheet" href="./css/listing.css">
 </head>
 <body>
+<style>
+    .myLi {
+        text-align: right;
+        display: block;
+        border-radius: 25px;
+        padding: 2px 4px 2px 35%;
+        margin: 1px;
+        font-weight: bold;
+        word-wrap: break-word;
+    }
+
+    .otherLi {
+        text-align:: left;
+        display: block;
+        border-radius: 25px;
+        padding: 2px 35% 2px 4px;
+        margin: 1px;
+        font-weight: bold;
+        word-wrap: break-word;
+    }
+
+    .systemLi {
+        text-align: center;
+    }
+
+    .ulChatText {
+        list-style-type: none;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        padding: 5px;
+        background: rgba(1, 1, 1, 0.1);
+        height: 60vh;
+        width: 100%;
+        border: 1px solid #ACD8F0;
+        overflow: auto;
+    }
+</style>
 <div class="container-fluid hide" id="body_wrap">
 
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" style="background-color: #CDF692;">
@@ -31,7 +69,8 @@
         </button>
         <a class="navbar-brand" href="home.html">
             <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <i><span style="font-weight: 500;">F2E</span></i>&nbsp;&nbsp;&nbsp; <span style="font-size: small" id="userNameHTML"></span>
+            <i><span style="font-weight: 500;">F2E</span></i>&nbsp;&nbsp;&nbsp; <span style="font-size: small"
+                                                                                      id="userNameHTML"></span>
         </a>
         <div class="navbar-collapse collapse" id="menu-collapse">
             <ul class="navbar-nav mr-auto">
@@ -57,82 +96,30 @@
     </nav>
     <!-- Main content -->
 
-    <div class="content_block" style="padding:70px 0px 70px 0px">
-        <form>
-            <div class="input-group input-group-lg">
-                <label for="foodname">Food item: &nbsp; </label>
-                <input type="text" class="form-control" id="foodname">
-            </div>
-            <br>
-            <div class="input-group input-group-lg">
-                <label for="numfood">Quantity:&nbsp;</label>
-                <input type="number" class="form-control" id="numfood">
-            </div>
-            <br>
-            <div class="input-group input-group-lg">
-                <label for="sel1">Condition:&nbsp;</label>
-                <select class="form-control" id="sel1">
-                    <option>Awful</option>
-                    <option>Bad</option>
-                    <option selected="selected">OK</option>
-                    <option>Good</option>
-                    <option>Excellent</option>
-                </select>
-            </div>
+    <div class="content_block" style="padding:70px 0px 5px 0px">
+        <div id="chatWindowHTML">
+            <!--Create chat boxes here-->
 
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" cols="45" id="comment"></textarea>
-            <br>
-            <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" onclick="clearPost()">Reset Info</button>
-                <button type="button" class="btn btn-default" onclick="addPost()">Submit</button>
-            </div>
-        </form>
+        </div>
+
     </div>
-	<div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Post Successful!</h4>
-      </div>
-      <div class="modal-body">
-       
-  <button type="button" onClick="window.location.href='home.html'"> Back to listings?</button>
-  <ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.f2e.ca&t=" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="images/Facebook.png"></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.f2e.ca&text=:%20http%3A%2F%2Fwww.f2e.ca" target="_blank" title="Tweet" ><img alt="Tweet" src="images/Twitter.png"></a></li>
-  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.f2e.ca" target="_blank" title="Send email" ><img alt="Send email" src="images/Email.png"></a></li>
-</ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-  
-</div>
-
     <!-- Footer content -->
-    <div class="footer">
+    <div class="footer hide">
         <!-- Bottom navigation with search -->
         <nav class="navbar fixed-bottom navbar-light bg-faded row">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search" id="ps_bar">
                 <span class="input-group-btn">
-            <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button> &nbsp;
-          </span>
+        <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button> &nbsp;
+      </span>
+                <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="submit" onclick="post()">Post</button> &nbsp;
+      </span>
             </div>
         </nav>
     </div>
-
 </div>
 <script src="js/firebase.js"></script>
-<script src="js/post.js"></script>
-
+<script src="js/chat.js"></script>
 </body>
 </html>
