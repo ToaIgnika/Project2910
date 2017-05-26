@@ -20,25 +20,26 @@
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 
     <!-- Temporary navbar container fix -->
     <style>
-    .navbar-toggler {
-        z-index: 1;
-    }
-    
-    @media (max-width: 576px) {
-        nav > .container {
-            width: 100%;
+        .navbar-toggler {
+            z-index: 1;
         }
-    }
+
+        @media (max-width: 576px) {
+            nav > .container {
+                width: 100%;
+            }
+        }
     </style>
 
 </head>
 
 <body>
-
     <!-- Navigation
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,9 +80,9 @@
                 <hr class="intro-divider">
                 <ul class="list-inline intro-social-buttons">
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-secondary btn-lg">
+                        <button onClick="signInFlow()" class="btn btn-secondary btn-lg">
                             <i class="fa fa-facebook fa-fw"></i> <span class="network-name">Get Started</span>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -97,8 +98,9 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading" id="share">Sharing</h2>
-                    <p class="lead">F2E makes sharing food and ingredients with your friends easy. Users are able to post, request, and search
-                    for food to share.</p>
+                    <p class="lead">F2E makes sharing food and ingredients with your friends easy. Users are able to
+                        post, request, and search
+                        for food to share.</p>
                 </div>
                 <div class="col-lg-5 offset-lg-2">
                     <img class="img-fluid" src="images/share.jpg" alt="">
@@ -119,13 +121,16 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading" id="food">Vancouver Food Waste</h2>
                     <p class="lead">Food waste is a major problem in Vancouver. F2E is an effort to combat food waste by
-                        redistributing food and ingredients. We hope that sharing in the community helps increase awareness.
-                        <a href="http://www.lovefoodhatewaste.ca/">Love Food Hate Waste</a> specializes in informing Metro Vancouver
+                        redistributing food and ingredients. We hope that sharing in the community helps increase
+                        awareness.
+                        <a href="http://www.lovefoodhatewaste.ca/">Love Food Hate Waste</a> specializes in informing
+                        Metro Vancouver
                         about food waste practices, check them out!
                     </p>
                 </div>
                 <div class="col-lg-5 pull-lg-5">
-                    <a href="http://www.lovefoodhatewaste.ca/"><img class="img-fluid" src="images/love.jpg" alt="" href=""></a>
+                    <a href="http://www.lovefoodhatewaste.ca/"><img class="img-fluid" src="images/love.jpg" alt=""
+                                                                    href=""></a>
                 </div>
             </div>
         </div>
@@ -148,7 +153,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/tether/tether.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="js/firebase.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
