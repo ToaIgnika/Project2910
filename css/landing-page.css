@@ -25,9 +25,9 @@ h6 {
     padding-top: 200px;
     padding-bottom: 120px;
     text-align: center;
-    color: #f8f8f8;
     background: url(../images/egg.jpg) no-repeat center center;
     background-size: cover;
+    color: #a2e064;
 }
 
 .intro-message {
