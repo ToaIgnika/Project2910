@@ -73,3 +73,9 @@ function chatWith(chatLoc) {
 function userLogOut() {
     firebase.auth().signOut();
 }
+
+function showUserName() {
+    var namePlace = document.getElementById('userNameHTML');
+    var user = firebase.auth().currentUser.displayName;
+    namePlace.innerHTML = user;
+}

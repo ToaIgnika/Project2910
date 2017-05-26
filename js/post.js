@@ -10,6 +10,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         // TODO control the DB interaction functions
 
         const wrap = document.getElementById('body_wrap');
+        showUserName();
         wrap.classList.remove('hide');
     } else {
         window.location = "index.html";

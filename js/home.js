@@ -14,6 +14,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         friendList();
         listDel();
         const wrap = document.getElementById('body_wrap');
+        showUserName();
         wrap.classList.remove('hide');
     } else {
         window.location = "index.html";

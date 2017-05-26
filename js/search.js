@@ -12,6 +12,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         searchList(5);
         remList();
         const wrap = document.getElementById('body_wrap');
+        showUserName();
         wrap.classList.remove('hide');
     } else {
         window.location = "index.html";
@@ -23,7 +24,7 @@ window.onload = function () {
     var url = document.location.href,
         itemval = url.substring(url.indexOf('=') + 1);
     document.getElementById('searchItemHTML').value = decodeURIComponent(itemval);
-}
+};
 
 function clearList() {
     const bigList = document.getElementById('searchListHTML');
