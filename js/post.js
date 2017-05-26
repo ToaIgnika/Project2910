@@ -41,9 +41,7 @@ function addPost() {
       'poster_id' : user.uid,
       'poster_name' : user.displayName
     });
-    $( function() {
-    $( "#dialog" ).dialog();
-  } );
+	$('#myModal').modal('show');
     clearPost();
   }
 }
