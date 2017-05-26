@@ -31,7 +31,7 @@
         </button>
         <a class="navbar-brand" href="home.html">
             <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <i><span style="font-weight: 500;">F2E</span></i>
+            <i><span style="font-weight: 500;">F2E</span></i>&nbsp;&nbsp;&nbsp; <span style="font-size: small" id="userNameHTML"></span>
         </a>
         <div class="navbar-collapse collapse" id="menu-collapse">
             <ul class="navbar-nav mr-auto">
@@ -47,9 +47,10 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto justify-content-end">
-                <!-- Account should only appear after logging in -->
                 <li class="nav-item">
-                    <a class="nav-link" href="account.html">Account</a>
+                    <a onClick="userLogOut()">
+                        <span style="color: red">Log out</span>
+                    </a>
                 </li>
             </ul>
         </div>
