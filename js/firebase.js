@@ -69,3 +69,7 @@ function chatWith(chatLoc) {
   document.location.href = url;
   window.location = url;
 }
+
+function userLogOut() {
+    firebase.auth().signOut();
+}
