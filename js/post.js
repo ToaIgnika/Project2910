@@ -26,10 +26,29 @@ window.onload = function () {
 
 
 function addPost() {
-  const foodItemName = document.getElementById('foodname');
-  const foodItemCount = document.getElementById('numfood');
-  const foodCondition = document.getElementById('sel1');
-  const foodComment = document.getElementById('comment');
+  var foodItemName = document.getElementById('foodname');
+  var foodItemCount = document.getElementById('numfood');
+  var foodCondition = document.getElementById('sel1');
+  var foodComment = document.getElementById('comment');
+  
+  // validate foodItemName
+  if ((foodItemName == null) || (foodItemName.length > 25) || (/[^a-z0-9\s]+/i.test(foodItemName))) {
+	window.alert("Please enter the name of your food. (Max. 25 alphanumeric characters)");
+	return;
+  } 
+  
+  // validate foodItemCount
+  if ((foodItemCount == null) || (foodItemCount.length > 25)) {
+	window.alert("Please describe the quantity of food you're offering with 25 characters or less.");
+	return;
+  } 
+  
+  // validate foodComment
+  if (foodComment.length > 400) {
+	window.alert("Please limit comments to 400 characters or less.");
+	return;
+  } 
+
   console.log("wtf");
   var user = firebase.auth().currentUser;
   if (user) {
