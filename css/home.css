@@ -20,7 +20,7 @@
 
 .nav-tabs > li > a::after {
     content: "";
-    background: #4285F4;
+    background: #CDF692;
     height: 2px;
     position: absolute;
     width: 100%;
@@ -84,4 +84,8 @@ ul.share-buttons .sr-only {
   height: 1px;
   width: 1px;
   overflow: hidden;
+}
+
+.btn-outline-success {
+    border-radius: 25px;
 }
