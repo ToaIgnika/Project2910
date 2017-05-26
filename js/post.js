@@ -41,7 +41,9 @@ function addPost() {
       'poster_id' : user.uid,
       'poster_name' : user.displayName
     });
-    alert('Post added!');
+    $( function() {
+    $( "#dialog" ).dialog();
+  } );
     clearPost();
   }
 }
